@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhamad Tomi Tobuhita | Portfolio</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Portfolio & CV of Muhamad Tomi Tobuhita, Web Developer & Frontend Engineer specializing in interactive, premium, and high-performance web applications.">
+    <meta name="keywords"
+        content="Muhamad Tomi Tobuhita, Web Developer, Frontend Engineer, Glassmorphism, Portfolio, React, JavaScript, CSS">
+    <meta name="author" content="Muhamad Tomi Tobuhita">
+
+    <!-- Google Fonts (Outfit for Headers, Inter for Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dark-theme">
+    <!-- Blurred Aurora background blobs for premium depth -->
+    <div class="aurora-bg" aria-hidden="true">
+        <div class="blob blob-purple"></div>
+        <div class="blob blob-blue"></div>
+        <div class="blob blob-green"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="#hero" class="nav-logo" id="nav-logo">Tomi<span>.</span></a>
+
+            <nav class="nav-links-container" aria-label="Main Navigation">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme"
+                    title="Toggle dark/light mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="nav-hamburger" aria-label="Toggle Menu" aria-expanded="false" id="nav-hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+
+        <!-- HERO SECTION -->
+        <section class="hero-section" id="hero">
+            <div class="hero-container">
+                <div class="hero-info">
+                    <span class="badge">Full Stack Developer</span>
+                    <h1 class="hero-title">Muhamad <span class="gradient-text">Tomi Tobuhita</span></h1>
+                    <h2 class="hero-subtitle">Frontend Engineer & Web Developer</h2>
+                    <p class="hero-description">
+                        I build modern, responsive, and scalable web applications, merging creative visual aesthetics
+                        with solid, high-performance clean code.
+                    </p>
+
+                    <div class="hero-ctas">
+                        <a href="#projects" class="btn btn-primary">View My Work <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://github.com/m-tomi-tobuhita" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com/in/muhamad-tomi-tobuhita" target="_blank"
+                            rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="avatar-card-wrapper">
+                        <!-- Planetary/Orbital Ring animations in the background -->
+                        <div class="orbital-ring ring-1"></div>
+                        <div class="orbital-ring ring-2"></div>
+
+                        <!-- Main 3D Tilt Glassmorphic Card -->
+                        <div class="avatar-tilt-card" id="avatar-card">
+                            <div class="avatar-image-container">
+                                <img src="assets/cyberpunk_avatar.png" alt="Muhamad Tomi Tobuhita" class="avatar-img">
+                            </div>
+
+                            <!-- Floating Badges -->
+                            <div class="floating-badge badge-experience">
+                                <span class="badge-number">5+</span>
+                                <span class="badge-text">Years<br>Experience</span>
+                            </div>
+
+                            <div class="floating-badge badge-code">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section class="about-section" id="about">
+            <span class="section-tagline">About Me</span>
+            <h2 class="section-title">About Me</h2>
+
+            <div class="about-grid">
+                <div class="about-details">
+                    <p class="paragraph">
+                        I am a <strong>Frontend Engineer</strong> and <strong>Web Developer</strong> with a deep passion
+                        for building modern, interactive, and premium web interfaces. Armed with experience in writing
+                        modular, clean, and detail-oriented code, I always strive to create the best digital solutions
+                        that bridge visual beauty and rendering speed.
+                    </p>
+                    <p class="paragraph">
+                        My primary focus lies in utilizing modern web technologies like ES6+ JavaScript, CSS grid
+                        systems, responsive frameworks, and component-based architectures. I love crafting subtle
+                        micro-interactions and smooth transitions that elevate the user experience.
+                    </p>
+
+                    <button id="download-cv" class="btn btn-primary btn-cv" aria-label="Download CV as PDF">
+                        Download CV <i class="fa-solid fa-download"></i>
+                    </button>
+                </div>
+
+                <div class="about-info-card">
+                    <div class="glass-card info-table-card">
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-regular fa-user"></i> Name</span>
+                            <span class="info-value">Muhamad Tomi Tobuhita</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-regular fa-envelope"></i> Email</span>
+                            <a href="mailto:muhamad.tomi.tobuhita@example.com"
+                                class="info-value email-link">tomi.tobuhita@gmail.com</a>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-solid fa-map-pin"></i> Location</span>
+                            <span class="info-value">Jakarta, Indonesia</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fa-regular fa-calendar-check"></i> Availability</span>
+                            <span class="info-value availability-status">
+                                <span class="pulse-dot"></span> Available for work
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section class="skills-section" id="skills">
+            <span class="section-tagline">My Skills</span>
+            <h2 class="section-title">Technologies I Work With</h2>
+
+            <div class="skills-grid">
+                <!-- Skill 1: React -->
+                <div class="glass-card skill-card hover-glow" data-color="rgba(0, 243, 255, 0.4)">
+                    <div class="skill-header">
+                        <i class="fa-brands fa-react react-color"></i>
+                        <div class="skill-meta">
+                            <span class="skill-name">React / Next.js</span>
+                            <span class="skill-category">Frontend Framework</span>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar-container" aria-label="React skill: 85%" role="progressbar"
+                            aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar-fill fill-react" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 2: JavaScript -->
+                <div class="glass-card skill-card hover-glow" data-color="rgba(247, 223, 30, 0.4)">
+                    <div class="skill-header">
+                        <i class="fa-brands fa-js-square js-color"></i>
+                        <div class="skill-meta">
+                            <span class="skill-name">JavaScript (ES6+)</span>
+                            <span class="skill-category">Logic & Programming</span>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar-container" aria-label="JavaScript skill: 88%" role="progressbar"
+                            aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar-fill fill-js" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 3: Node.js -->
+                <div class="glass-card skill-card hover-glow" data-color="rgba(131, 205, 41, 0.4)">
+                    <div class="skill-header">
+                        <i class="fa-brands fa-node-js node-color"></i>
+                        <div class="skill-meta">
+                            <span class="skill-name">Node.js / Express</span>
+                            <span class="skill-category">Runtime & Backend</span>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar-container" aria-label="Node.js skill: 80%" role="progressbar"
+                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar-fill fill-node" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 4: CSS3 / HTML5 -->
+                <div class="glass-card skill-card hover-glow" data-color="rgba(227, 79, 38, 0.4)">
+                    <div class="skill-header">
+                        <i class="fa-brands fa-css3-alt css-color"></i>
+                        <div class="skill-meta">
+                            <span class="skill-name">HTML5 & CSS3 / Grid</span>
+                            <span class="skill-category">Design & Layout</span>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-bar-container" aria-label="HTML/CSS skill: 90%" role="progressbar"
+                            aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar-fill fill-css" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section class="projects-section" id="projects">
+            <div class="projects-header">
+                <div>
+                    <span class="section-tagline">My Projects</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                </div>
+                <a href="#projects" class="btn btn-secondary">View All Projects</a>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1: Aegis Shield -->
+                <article class="glass-card project-card hover-glow">
+                    <div class="project-image-container">
+                        <img src="assets/project_aegis_shield.png" alt="Aegis Shield Dashboard Preview"
+                            class="project-img">
+                        <span class="project-category">Cyber Security</span>
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">Aegis Shield Dashboard</h3>
+                        <p class="project-description">
+                            Platform dasbor pemantauan keamanan siber interaktif dengan visualisasi bagan lalu lintas
+                            data real-time, log ancaman, dan mode alarm visual.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span>React</span>
+                            <span>Chart.js</span>
+                            <span>Tailwind</span>
+                            <span>WebSockets</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn btn-primary btn-sm">Demo <i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/m-tomi-tobuhita" class="project-repo-link" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fa-brands fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: Synthwave Shop -->
+                <article class="glass-card project-card hover-glow">
+                    <div class="project-image-container">
+                        <img src="assets/project_synthwave_shop.png" alt="SynthWave Sound Shop Preview"
+                            class="project-img">
+                        <span class="project-category">E-Commerce</span>
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">SynthWave Sound Shop</h3>
+                        <p class="project-description">
+                            Toko online bertema cyberpunk untuk produk synthesizer, instrumen musik, dan perlengkapan
+                            synthwave retro. Dilengkapi dengan keranjang belanja interaktif.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span>Next.js</span>
+                            <span>Stripe API</span>
+                            <span>Framer Motion</span>
+                            <span>CSS Grid</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn btn-primary btn-sm">Demo <i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/m-tomi-tobuhita" class="project-repo-link" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fa-brands fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: NetRunner Chat -->
+                <article class="glass-card project-card hover-glow">
+                    <div class="project-image-container">
+                        <img src="assets/project_netrunner_chat.png" alt="NetRunner P2P Chat Preview"
+                            class="project-img">
+                        <span class="project-category">Networking</span>
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">NetRunner P2P Chat</h3>
+                        <p class="project-description">
+                            Aplikasi pesan instan peer-to-peer terenkripsi langsung di browser dengan gaya antarmuka
+                            mirip terminal konsol hacker legendaris.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span>Vanilla JS</span>
+                            <span>WebRTC</span>
+                            <span>HTML5 Canvas</span>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn btn-primary btn-sm">Demo <i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="https://github.com/m-tomi-tobuhita" class="project-repo-link" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fa-brands fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact-section" id="contact">
+            <span class="section-tagline">Contact Me</span>
+            <h2 class="section-title">Get In Touch</h2>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p class="contact-intro">
+                        Have a project in mind or want to work together? Feel free to send me a message and I'll get
+                        back to you as soon as possible.
+                    </p>
+
+                    <div class="contact-details-list">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-text">
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:muhamad.tomi.tobuhita@example.com"
+                                    class="contact-value">muhamad.tomi.tobuhita@example.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-text">
+                                <span class="contact-label">Phone</span>
+                                <a href="tel:+6281234567890" class="contact-value">+62 812-3456-7890</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                            <div class="contact-text">
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value">Jakarta, Indonesia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="glass-card contact-form" id="contact-form"
+                        onsubmit="event.preventDefault(); alert('Your message has been encrypted and sent! (Simulation)'); this.reset();">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="user-name">Your Name</label>
+                                <input type="text" id="user-name" class="form-input" placeholder="e.g., Jane Doe"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="user-email">Your Email</label>
+                                <input type="email" id="user-email" class="form-input"
+                                    placeholder="e.g., jane@example.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-subject">Subject</label>
+                            <input type="text" id="form-subject" class="form-input" placeholder="How can I help you?"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-message">Your Message</label>
+                            <textarea id="form-message" class="form-input form-textarea"
+                                placeholder="Type your message here..." rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            Send Message <i class="fa-regular fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <span class="footer-logo">Tomi<span>.</span></span>
+            <p class="footer-copy">&copy; 2026 Muhamad Tomi Tobuhita. All rights reserved.</p>
+            <button id="scroll-to-top" class="scroll-top-btn" aria-label="Scroll to top" title="Scroll to top">
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
