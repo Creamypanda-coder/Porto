@@ -5,6 +5,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initPreloader();
     initThemeSwitcher();
     initMobileNav();
     init3DTilt();
@@ -217,5 +218,68 @@ function initDownloadCV() {
 
     downloadBtn.addEventListener('click', () => {
         window.print();
+    });
+}
+
+/* ==========================================================================
+   8. FUTURISTIC CYBERPUNK PRELOADER & LOTTIE INTEGRATION
+   ========================================================================== */
+function initPreloader() {
+    const preloader = document.getElementById('preloader');
+    const lottieContainer = document.getElementById('lottie-loader');
+    const fallbackSpinner = document.getElementById('fallback-spinner');
+
+    if (!preloader) return;
+
+    // Load Lottie Animation
+    let lottieAnim = null;
+    try {
+        if (typeof lottie !== 'undefined') {
+            lottieAnim = lottie.loadAnimation({
+                container: lottieContainer,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'https://assets5.lottiefiles.com/packages/lf20_t9gk18fn.json' // Futuristic tech circle loader
+            });
+
+            // Once Lottie successfully loads, hide the fallback CSS spinner smoothly
+            lottieAnim.addEventListener('DOMLoaded', () => {
+                if (fallbackSpinner) {
+                    fallbackSpinner.style.transition = 'opacity 0.5s ease';
+                    fallbackSpinner.style.opacity = '0';
+                    setTimeout(() => {
+                        fallbackSpinner.style.display = 'none';
+                    }, 500);
+                }
+            });
+        }
+    } catch (error) {
+        console.warn("Lottie loading failed. Using premium CSS loader fallback.", error);
+    }
+
+    // Guarantee the user sees the elegant animation for at least 1.5s, then wait for page load to finish
+    const minLoadTime = new Promise(resolve => setTimeout(resolve, 1500));
+    const pageLoaded = new Promise(resolve => {
+        if (document.readyState === 'complete') {
+            resolve();
+        } else {
+            window.addEventListener('load', resolve);
+        }
+    });
+
+    // Fade out preloader when both conditions are met
+    Promise.all([minLoadTime, pageLoaded]).then(() => {
+        // Fade out the preloader overlay
+        preloader.classList.add('fade-out');
+        document.body.classList.remove('loading');
+
+        // Clean up animation after fade out to save memory
+        setTimeout(() => {
+            preloader.style.display = 'none';
+            if (lottieAnim) {
+                lottieAnim.destroy();
+            }
+        }, 1200); // Matches the 1.2s CSS transition time
     });
 }

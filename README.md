@@ -9,7 +9,7 @@ Website portfolio curriculum vitae (CV) premium dengan tema **Cyberpunk Modern**
 tomi-cyberpunk-cv/
 │
 ├── assets/
-│   └── cyberpunk_avatar.png   # Avatar futuristik Muhamad Tomi Tobuhita (AI-generated)
+│   └── cyberpunk_avatar.png   # Avatar futuristik Muhamad Tomi Tobuhita
 │
 ├── index.html                 # Struktur utama halaman web (Semantic HTML)
 ├── styles.css                 # File desain & tata letak CSS (Cyberpunk Variables & Print Settings)
