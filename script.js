@@ -280,8 +280,12 @@ function initContactForm() {
 
     form.addEventListener('submit', () => {
         // Show loading state
-        submitBtn.disabled = true;
         submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+        
+        // Delay disabling the button slightly to let the browser process the submission
+        setTimeout(() => {
+            submitBtn.disabled = true;
+        }, 10);
     });
 }
 
