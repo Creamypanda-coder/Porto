@@ -85,10 +85,6 @@
             </nav>
 
             <div class="nav-actions">
-                <button id="refresh-page" class="theme-toggle-btn" aria-label="Refresh Page"
-                    title="Refresh Page">
-                    <i class="fa-solid fa-arrows-rotate"></i>
-                </button>
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme"
                     title="Toggle dark/light mode">
                     <i class="fa-solid fa-moon"></i>
@@ -111,7 +107,7 @@
                 <div class="hero-info">
                     <span class="badge">IT Engineering, Network, QA Services</span>
                     <h1 class="hero-title">Muhamad <span class="gradient-text">Tomi Tobuhita</span></h1>
-                    <h2 class="hero-subtitle">IT Engineer & Network Specialist</h2>
+                    <h2 class="hero-subtitle"><span class="typed-text">IT Engineer & Network Specialist</span><span class="cursor">&nbsp;</span></h2>
                     <p class="hero-description">
                         I build reliable, scalable, and secure IT infrastructure solutions, combining strong network
                         engineering,
@@ -162,15 +158,23 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Scroll Down Indicator -->
+            <a href="#about" class="scroll-down-indicator" aria-label="Scroll down to About section">
+                <span class="mouse-icon">
+                    <span class="wheel"></span>
+                </span>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </a>
         </section>
 
         <!-- ABOUT ME SECTION -->
         <section class="about-section" id="about">
-            <span class="section-tagline">About Me</span>
-            <h2 class="section-title">About Me</h2>
+            <span class="section-tagline scroll-reveal reveal-slide-up">About Me</span>
+            <h2 class="section-title scroll-reveal reveal-slide-up delay-100">About Me</h2>
 
             <div class="about-grid">
-                <div class="about-details">
+                <div class="about-details scroll-reveal reveal-slide-left">
                     <p class="paragraph">
                         I am an <strong>IT Engineer</strong>, <strong>Network Specialist</strong>, and <strong>QA
                             Services Professional</strong> with a deep passion for building reliable, secure, and
@@ -193,7 +197,7 @@
                     </button>
                 </div>
 
-                <div class="about-info-card">
+                <div class="about-info-card scroll-reveal reveal-slide-right">
                     <div class="glass-card info-table-card">
                         <div class="info-row">
                             <span class="info-label"><i class="fa-regular fa-user"></i> Name</span>
@@ -221,12 +225,12 @@
 
         <!-- SKILLS SECTION -->
         <section class="skills-section" id="skills">
-            <span class="section-tagline">My Skills</span>
-            <h2 class="section-title">Technologies I Work With</h2>
+            <span class="section-tagline scroll-reveal reveal-slide-up">My Skills</span>
+            <h2 class="section-title scroll-reveal reveal-slide-up delay-100">Technologies I Work With</h2>
 
             <div class="skills-grid">
                 <!-- Skill 1: Network Engineering -->
-                <div class="glass-card skill-card hover-glow" data-color="rgba(0, 243, 255, 0.4)">
+                <div class="glass-card skill-card hover-glow scroll-reveal reveal-slide-up delay-100" data-color="rgba(0, 243, 255, 0.4)">
                     <div class="skill-header">
                         <i class="fa-solid fa-network-wired react-color"></i>
                         <div class="skill-meta">
@@ -243,7 +247,7 @@
                 </div>
 
                 <!-- Skill 2: Systems & Server Administration -->
-                <div class="glass-card skill-card hover-glow" data-color="rgba(247, 223, 30, 0.4)">
+                <div class="glass-card skill-card hover-glow scroll-reveal reveal-slide-up delay-200" data-color="rgba(247, 223, 30, 0.4)">
                     <div class="skill-header">
                         <i class="fa-solid fa-server js-color"></i>
                         <div class="skill-meta">
@@ -260,7 +264,7 @@
                 </div>
 
                 <!-- Skill 3: Quality Assurance (QA) -->
-                <div class="glass-card skill-card hover-glow" data-color="rgba(131, 205, 41, 0.4)">
+                <div class="glass-card skill-card hover-glow scroll-reveal reveal-slide-up delay-300" data-color="rgba(131, 205, 41, 0.4)">
                     <div class="skill-header">
                         <i class="fa-solid fa-circle-check node-color"></i>
                         <div class="skill-meta">
@@ -277,7 +281,7 @@
                 </div>
 
                 <!-- Skill 4: Troubleshooting & Security -->
-                <div class="glass-card skill-card hover-glow" data-color="rgba(227, 79, 38, 0.4)">
+                <div class="glass-card skill-card hover-glow scroll-reveal reveal-slide-up delay-400" data-color="rgba(227, 79, 38, 0.4)">
                     <div class="skill-header">
                         <i class="fa-solid fa-shield-halved css-color"></i>
                         <div class="skill-meta">
@@ -297,7 +301,7 @@
 
         <!-- PROJECTS SECTION -->
         <section class="projects-section" id="projects">
-            <div class="projects-header">
+            <div class="projects-header scroll-reveal reveal-slide-up">
                 <div>
                     <span class="section-tagline">My Projects</span>
                     <h2 class="section-title">Featured Projects</h2>
@@ -307,16 +311,16 @@
 
             <div class="projects-grid">
                 <!-- Project 1: Gate Automation -->
-                <article class="glass-card project-card hover-glow">
+                <article class="glass-card project-card hover-glow scroll-reveal reveal-slide-up delay-100">
                     <div class="project-image-container">
-                        <img src="assets/gate_automation.png" alt="Gate Automation System Preview"
-                            class="project-img">
+                        <img src="assets/gate_automation.png" alt="Gate Automation System Preview" class="project-img">
                         <span class="project-category">Automation</span>
                     </div>
                     <div class="project-details">
                         <h3 class="project-title">Gate Automation System</h3>
                         <p class="project-description">
-                            Implementasi sistem pagar otomatis berbasis motor penggerak pintar dan sensor inframerah untuk keamanan akses masuk hunian dan area komersial secara efisien.
+                            Implementasi sistem pagar otomatis berbasis motor penggerak pintar dan sensor inframerah
+                            untuk keamanan akses masuk hunian dan area komersial secara efisien.
                         </p>
                         <div class="project-tech-stack">
                             <span>Auto Gate Motor</span>
@@ -336,7 +340,7 @@
                 </article>
 
                 <!-- Project 2: Server Rack & Switch Deployment -->
-                <article class="glass-card project-card hover-glow">
+                <article class="glass-card project-card hover-glow scroll-reveal reveal-slide-up delay-200">
                     <div class="project-image-container">
                         <img src="assets/server_rack_switch.png" alt="Server Rack & Switch Deployment Preview"
                             class="project-img">
@@ -345,7 +349,8 @@
                     <div class="project-details">
                         <h3 class="project-title">Server Rack & Switch Deployment</h3>
                         <p class="project-description">
-                            Pemasangan, perakitan, dan penataan manajemen kabel (cable management) rak server beserta konfigurasi network switch untuk infrastruktur jaringan kantor yang andal.
+                            Pemasangan, perakitan, dan penataan manajemen kabel (cable management) rak server beserta
+                            konfigurasi network switch untuk infrastruktur jaringan kantor yang andal.
                         </p>
                         <div class="project-tech-stack">
                             <span>Rack Server</span>
@@ -365,7 +370,7 @@
                 </article>
 
                 <!-- Project 3: CCTV, AP, & Fiber Optic Installation -->
-                <article class="glass-card project-card hover-glow">
+                <article class="glass-card project-card hover-glow scroll-reveal reveal-slide-up delay-300">
                     <div class="project-image-container">
                         <img src="assets/cctv_ap_fiber.png" alt="CCTV, Access Point & Fiber Optic Installation Preview"
                             class="project-img">
@@ -374,7 +379,8 @@
                     <div class="project-details">
                         <h3 class="project-title">CCTV, Access Point & Fiber Optic Installation</h3>
                         <p class="project-description">
-                            Instalasi kamera pengawas CCTV, pemasangan Wi-Fi Access Point untuk area luas, dan penarikan serta splicing kabel serat optik (Fiber Optic) berkecepatan tinggi.
+                            Instalasi kamera pengawas CCTV, pemasangan Wi-Fi Access Point untuk area luas, dan penarikan
+                            serta splicing kabel serat optik (Fiber Optic) berkecepatan tinggi.
                         </p>
                         <div class="project-tech-stack">
                             <span>IP CCTV Camera</span>
@@ -397,11 +403,11 @@
 
         <!-- CONTACT SECTION -->
         <section class="contact-section" id="contact">
-            <span class="section-tagline">Contact Me</span>
-            <h2 class="section-title">Get In Touch</h2>
+            <span class="section-tagline scroll-reveal reveal-slide-up">Contact Me</span>
+            <h2 class="section-title scroll-reveal reveal-slide-up delay-100">Get In Touch</h2>
 
             <div class="contact-grid">
-                <div class="contact-info">
+                <div class="contact-info scroll-reveal reveal-slide-left">
                     <p class="contact-intro">
                         Have a project in mind or want to work together? Feel free to send me a message and I'll get
                         back to you as soon as possible.
@@ -412,7 +418,8 @@
                             <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
                             <div class="contact-text">
                                 <span class="contact-label">Email</span>
-                                <a href="mailto:muhamadtomytobuhita@gmail.com" class="contact-value">muhamadtomytobuhita@gmail.com</a>
+                                <a href="mailto:muhamadtomytobuhita@gmail.com"
+                                    class="contact-value">muhamadtomytobuhita@gmail.com</a>
                             </div>
                         </div>
 
@@ -434,13 +441,13 @@
                     </div>
                 </div>
 
-                <div class="contact-form-wrapper">
+                <div class="contact-form-wrapper scroll-reveal reveal-slide-right">
                     <form class="glass-card contact-form" id="contact-form">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="user-name">Your Name</label>
-                                <input type="text" id="user-name" name="name" class="form-input" placeholder="e.g., Jane Doe"
-                                    required>
+                                <input type="text" id="user-name" name="name" class="form-input"
+                                    placeholder="e.g., Jane Doe" required>
                             </div>
                             <div class="form-group">
                                 <label for="user-email">Your Email</label>
@@ -450,8 +457,8 @@
                         </div>
                         <div class="form-group">
                             <label for="form-subject">Subject</label>
-                            <input type="text" id="form-subject" name="subject" class="form-input" placeholder="How can I help you?"
-                                required>
+                            <input type="text" id="form-subject" name="subject" class="form-input"
+                                placeholder="How can I help you?" required>
                         </div>
                         <div class="form-group">
                             <label for="form-message">Your Message</label>

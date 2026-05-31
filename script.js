@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initFooterActions();
     initDownloadCV();
     initContactForm();
-    initRefreshButton();
+    initTypingEffect();
+    initScrollReveal();
 });
 
 /* ==========================================================================
@@ -141,12 +142,14 @@ function initSkillsScrollReveal() {
         rootMargin: '0px 0px -40px 0px'
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            const fill = entry.target;
             if (entry.isIntersecting) {
-                const fill = entry.target;
                 fill.style.width = fill.dataset.targetWidth;
-                observer.unobserve(fill); // Run only once
+            } else {
+                // Reset width to 0 when out of viewport so it animates again next time
+                fill.style.width = '0%';
             }
         });
     }, options);
@@ -161,7 +164,7 @@ function initScrollSpy() {
     const sections = document.querySelectorAll('section[id]');
     
     window.addEventListener('scroll', () => {
-        let scrollY = window.pageYOffset;
+        let scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
         
         sections.forEach(current => {
             const sectionHeight = current.offsetHeight;
@@ -186,14 +189,11 @@ function initFooterActions() {
 
     // Show button when scrolled past 400px
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 400) {
-            topBtn.style.opacity = '1';
-            topBtn.style.pointerEvents = 'auto';
-            topBtn.style.transform = 'translateY(0)';
+        const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollPosition > 400) {
+            topBtn.classList.add('visible');
         } else {
-            topBtn.style.opacity = '0';
-            topBtn.style.pointerEvents = 'none';
-            topBtn.style.transform = 'translateY(10px)';
+            topBtn.classList.remove('visible');
         }
     });
 
@@ -204,11 +204,6 @@ function initFooterActions() {
             behavior: 'smooth'
         });
     });
-    
-    // Set initial state
-    topBtn.style.opacity = '0';
-    topBtn.style.pointerEvents = 'none';
-    topBtn.style.transition = 'all 0.3s ease';
 }
 
 /* ==========================================================================
@@ -273,23 +268,7 @@ function initPreloader() {
     });
 }
 
-/* ==========================================================================
-   8.5. MANUAL PAGE REFRESH TRIGGER
-   ========================================================================== */
-function initRefreshButton() {
-    const refreshBtn = document.getElementById('refresh-page');
-    if (!refreshBtn) return;
 
-    refreshBtn.addEventListener('click', () => {
-        // Add rotation class for feedback
-        refreshBtn.classList.add('spinning');
-        
-        // Short delay to let the animation rotate beautifully before reload
-        setTimeout(() => {
-            window.location.reload();
-        }, 600);
-    });
-}
 
 /* ==========================================================================
    9. CONTACT FORM AJAX SUBMISSION (FormSubmit Integration)
@@ -311,7 +290,8 @@ function initContactForm() {
             name: document.getElementById('user-name').value,
             email: document.getElementById('user-email').value,
             subject: document.getElementById('form-subject').value,
-            message: document.getElementById('form-message').value
+            message: document.getElementById('form-message').value,
+            _captcha: "false" // Disable captcha verification for a seamless experience
         };
 
         // FormSubmit AJAX endpoint to deliver messages to owner's inbox
@@ -342,5 +322,94 @@ function initContactForm() {
             submitBtn.innerHTML = originalBtnHTML;
         });
     });
+}
+
+/* ==========================================================================
+   10. TYPING EFFECT FOR HERO SUBTITLE
+   ========================================================================== */
+function initTypingEffect() {
+    const typedTextSpan = document.querySelector(".typed-text");
+    const cursorSpan = document.querySelector(".cursor");
+    if (!typedTextSpan) return;
+
+    const textArray = [
+        "IT Engineer",
+        "Network Specialist",
+        "QA Services Professional",
+        "Systems Infrastructure Specialist"
+    ];
+    const typingDelay = 100;
+    const erasingDelay = 50;
+    const newTextDelay = 2000; // Delay between current and next text
+    let textArrayIndex = 0;
+    let charIndex = 0;
+
+    // Clear fallback text immediately to prepare for animation
+    typedTextSpan.textContent = "";
+
+    function type() {
+        if (charIndex < textArray[textArrayIndex].length) {
+            if (cursorSpan && !cursorSpan.classList.contains("typing")) {
+                cursorSpan.classList.add("typing");
+            }
+            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        } else {
+            if (cursorSpan) {
+                cursorSpan.classList.remove("typing");
+            }
+            setTimeout(erase, newTextDelay);
+        }
+    }
+
+    function erase() {
+        if (charIndex > 0) {
+            if (cursorSpan && !cursorSpan.classList.contains("typing")) {
+                cursorSpan.classList.add("typing");
+            }
+            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, erasingDelay);
+        } else {
+            if (cursorSpan) {
+                cursorSpan.classList.remove("typing");
+            }
+            textArrayIndex++;
+            if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+            setTimeout(type, typingDelay + 500);
+        }
+    }
+
+    // Start typing after preloader finishes
+    setTimeout(type, 1600);
+}
+
+/* ==========================================================================
+   11. SCROLL REVEAL ANIMATIONS (INTERSECTION OBSERVER)
+   ========================================================================== */
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    if (revealElements.length === 0) return;
+
+    const observerOptions = {
+        root: null, // viewport
+        threshold: 0.15, // Trigger when 15% visible
+        rootMargin: '0px 0px -40px 0px' // Trigger slightly before it fully scrolls in
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                // Remove active class when element scrolls out of viewport
+                // This makes the animations repeat every time you scroll up and down!
+                entry.target.classList.remove('active');
+            }
+        });
+    }, observerOptions);
+
+    revealElements.forEach(el => observer.observe(el));
 }
 

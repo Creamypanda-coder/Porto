@@ -464,6 +464,7 @@ body.light-theme .section-tagline {
     min-height: calc(80vh - 80px);
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .hero-container {
@@ -492,6 +493,29 @@ body.light-theme .section-tagline {
     font-weight: 500;
     color: var(--text-secondary);
     margin-bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+}
+
+.hero-subtitle .cursor {
+    display: inline-block;
+    background: var(--primary-gradient);
+    margin-left: 6px;
+    width: 3px;
+    height: 1.1em;
+    vertical-align: middle;
+    animation: cursorBlink 1s infinite;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+}
+
+.hero-subtitle .cursor.typing {
+    animation: none;
+}
+
+@keyframes cursorBlink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
 }
 
 .hero-description {
@@ -506,6 +530,90 @@ body.light-theme .section-tagline {
     display: flex;
     gap: 16px;
     margin-bottom: 48px;
+}
+
+/* Scroll Down Indicator */
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 14px;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.scroll-down-indicator:hover {
+    color: var(--text-primary);
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+}
+
+.scroll-down-indicator .mouse-icon {
+    width: 22px;
+    height: 36px;
+    border: 2px solid var(--text-muted);
+    border-radius: 12px;
+    position: relative;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scroll-down-indicator:hover .mouse-icon {
+    border-color: #a855f7;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+}
+
+.scroll-down-indicator .wheel {
+    width: 3px;
+    height: 6px;
+    background-color: var(--text-muted);
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 1.6s ease-in-out infinite;
+}
+
+.scroll-down-indicator:hover .wheel {
+    background-color: #a855f7;
+}
+
+.scroll-down-indicator .chevron {
+    font-size: 11px;
+    animation: bounceChevron 1.6s infinite;
+}
+
+@keyframes scrollWheel {
+    0% {
+        top: 6px;
+        opacity: 1;
+        height: 6px;
+    }
+    50% {
+        top: 16px;
+        opacity: 0.15;
+        height: 3px;
+    }
+    100% {
+        top: 6px;
+        opacity: 1;
+        height: 6px;
+    }
+}
+
+@keyframes bounceChevron {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(4px);
+    }
 }
 
 /* Social icons layout */
@@ -1617,23 +1725,7 @@ body.light-theme .form-input:focus {
     text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
 }
 
-/* Refresh Button Animation Styles */
-#refresh-page i {
-    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
 
-#refresh-page:hover i {
-    transform: rotate(180deg);
-}
-
-#refresh-page.spinning i {
-    animation: spinButton 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
-}
-
-@keyframes spinButton {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
 
 /* Animations for Cyber Loader */
 @keyframes rotateClockwise {
@@ -1698,6 +1790,103 @@ body.loading .footer {
     transition: opacity 1.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Scroll-to-Top Button Glassmorphic Design */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: var(--bg-secondary);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+    z-index: 99;
+    
+    /* Initial state (hidden) */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-top-btn.visible:hover {
+    background: var(--border-color);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6), 
+                0 0 15px 2px rgba(168, 85, 247, 0.25);
+    color: #a855f7;
+    transform: translateY(-5px) scale(1.05);
+}
+
+.scroll-top-btn.visible:active {
+    transform: translateY(-2px) scale(0.95);
+}
+
+body.light-theme .scroll-top-btn {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .scroll-top-btn.visible:hover {
+    color: #9333ea;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08),
+                0 0 12px 2px rgba(147, 51, 234, 0.15);
+}
+
+/* --- 14.5. SCROLL REVEAL ANIMATIONS --- */
+.scroll-reveal {
+    opacity: 0;
+    will-change: transform, opacity;
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.scroll-reveal.reveal-fade {
+    transform: none;
+}
+
+.scroll-reveal.reveal-slide-up {
+    transform: translateY(30px);
+}
+
+.scroll-reveal.reveal-slide-left {
+    transform: translateX(-30px);
+}
+
+.scroll-reveal.reveal-slide-right {
+    transform: translateX(30px);
+}
+
+.scroll-reveal.reveal-zoom-in {
+    transform: scale(0.95);
+}
+
+/* Active class applied by JavaScript when element enters viewport */
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Staggered Delay Utilities */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+
 /* --- 15. PRINT SPECIFIC STYLESHEET - SINGLE PAGE A4 CV --- */
 
 /* Print wrapper: invisible on screen (display:contents passes through) */
@@ -1747,6 +1936,7 @@ body.loading .footer {
     .preloader,
     .aurora-bg,
     .navbar,
+    .scroll-down-indicator,
     .hero-visual,
     .hero-ctas,
     .social-links,
