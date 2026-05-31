@@ -142,14 +142,12 @@ function initSkillsScrollReveal() {
         rootMargin: '0px 0px -40px 0px'
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             const fill = entry.target;
             if (entry.isIntersecting) {
                 fill.style.width = fill.dataset.targetWidth;
-            } else {
-                // Reset width to 0 when out of viewport so it animates again next time
-                fill.style.width = '0%';
+                obs.unobserve(fill); // Stop observing after animating once
             }
         });
     }, options);
@@ -380,17 +378,19 @@ function initScrollReveal() {
         rootMargin: '0px 0px -40px 0px' // Trigger slightly before it fully scrolls in
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
                 
                 // Cyberpunk Decrypt Text animation on section titles and taglines
-                if (entry.target.classList.contains('section-title') || entry.target.classList.contains('section-tagline')) {
+                if (!entry.target.dataset.decrypted && (entry.target.classList.contains('section-title') || entry.target.classList.contains('section-tagline'))) {
                     decryptTextEffect(entry.target);
+                    entry.target.dataset.decrypted = "true";
                 }
-            } else {
-                entry.target.classList.remove('active');
+                
+                // Stop observing after animating once for a premium, non-flashing experience
+                obs.unobserve(entry.target);
             }
         });
     }, observerOptions);
