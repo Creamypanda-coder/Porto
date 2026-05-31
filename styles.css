@@ -460,8 +460,8 @@ body.light-theme .section-tagline {
 
 /* --- 8. HERO SECTION --- */
 .hero-section {
-    padding: 100px 0;
-    min-height: calc(100vh - 80px);
+    padding: 60px 0;
+    min-height: calc(80vh - 80px);
     display: flex;
     align-items: center;
 }
