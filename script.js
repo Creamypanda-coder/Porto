@@ -385,9 +385,6 @@ function initTypingEffect() {
     setTimeout(type, 1600);
 }
 
-/* ==========================================================================
-   11. SCROLL REVEAL ANIMATIONS (INTERSECTION OBSERVER)
-   ========================================================================== */
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.scroll-reveal');
     if (revealElements.length === 0) return;
@@ -402,14 +399,53 @@ function initScrollReveal() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
+                
+                // Cyberpunk Decrypt Text animation on section titles and taglines
+                if (entry.target.classList.contains('section-title') || entry.target.classList.contains('section-tagline')) {
+                    decryptTextEffect(entry.target);
+                }
             } else {
-                // Remove active class when element scrolls out of viewport
-                // This makes the animations repeat every time you scroll up and down!
                 entry.target.classList.remove('active');
             }
         });
     }, observerOptions);
 
     revealElements.forEach(el => observer.observe(el));
+}
+
+/* Cyberpunk Decrypt Text Animation Helper */
+function decryptTextEffect(element) {
+    const originalText = element.dataset.originalText || element.textContent.trim();
+    if (!element.dataset.originalText) {
+        element.dataset.originalText = originalText;
+    }
+    
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*()_+{}|<>?";
+    let iterations = 0;
+    
+    if (element.decryptInterval) {
+        clearInterval(element.decryptInterval);
+    }
+    
+    element.decryptInterval = setInterval(() => {
+        element.textContent = originalText
+            .split("")
+            .map((char, index) => {
+                if (index < iterations) {
+                    return originalText[index];
+                }
+                if (char === " ") return " ";
+                return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join("");
+            
+        if (iterations >= originalText.length) {
+            clearInterval(element.decryptInterval);
+            element.textContent = originalText;
+        }
+        
+        // Speed up animation slightly for shorter strings
+        iterations += originalText.length > 25 ? 0.75 : 0.45;
+    }, 20);
 }
 

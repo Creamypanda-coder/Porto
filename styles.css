@@ -1847,37 +1847,41 @@ body.light-theme .scroll-top-btn.visible:hover {
                 0 0 12px 2px rgba(147, 51, 234, 0.15);
 }
 
-/* --- 14.5. SCROLL REVEAL ANIMATIONS --- */
+/* --- 14.5. SCROLL REVEAL ANIMATIONS (PREMIUM 3D TILT & SPRING) --- */
 .scroll-reveal {
     opacity: 0;
     will-change: transform, opacity;
-    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.34, 1.3, 0.64, 1);
 }
 
 .scroll-reveal.reveal-fade {
-    transform: none;
+    transform: scale(0.98);
 }
 
 .scroll-reveal.reveal-slide-up {
-    transform: translateY(30px);
+    transform: perspective(1200px) rotateX(15deg) translateY(45px) scale(0.96);
+    transform-origin: top center;
 }
 
 .scroll-reveal.reveal-slide-left {
-    transform: translateX(-30px);
+    transform: perspective(1200px) rotateY(-12deg) translateX(-45px) scale(0.96);
+    transform-origin: center right;
 }
 
 .scroll-reveal.reveal-slide-right {
-    transform: translateX(30px);
+    transform: perspective(1200px) rotateY(12deg) translateX(45px) scale(0.96);
+    transform-origin: center left;
 }
 
 .scroll-reveal.reveal-zoom-in {
-    transform: scale(0.95);
+    transform: perspective(1200px) translateZ(-60px) scale(0.92);
+    transform-origin: center center;
 }
 
 /* Active class applied by JavaScript when element enters viewport */
 .scroll-reveal.active {
     opacity: 1;
-    transform: translate(0, 0) scale(1);
+    transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0) scale(1);
 }
 
 /* Staggered Delay Utilities */
