@@ -278,50 +278,31 @@ function initContactForm() {
     const submitBtn = document.getElementById('contact-submit-btn');
     if (!form || !submitBtn) return;
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Show loading state (Premium loading effect)
-        const originalBtnHTML = submitBtn.innerHTML;
+    form.addEventListener('submit', () => {
+        // Show loading state
         submitBtn.disabled = true;
         submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
-
-        const formData = {
-            name: document.getElementById('user-name').value,
-            email: document.getElementById('user-email').value,
-            subject: document.getElementById('form-subject').value,
-            message: document.getElementById('form-message').value,
-            _captcha: "false" // Disable captcha verification for a seamless experience
-        };
-
-        // FormSubmit AJAX endpoint to deliver messages to owner's inbox
-        fetch('https://formsubmit.co/ajax/muhamadtomytobuhita@gmail.com', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success === 'true' || data.success === true) {
-                alert('Pesan berhasil terkirim! Terima kasih telah menghubungi saya. (Jika ini pertama kalinya, silakan periksa email masuk/spam Anda untuk mengaktifkan pengiriman dari FormSubmit).');
-                form.reset();
-            } else {
-                alert('Oops! Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.');
-            }
-        })
-        .catch(error => {
-            console.error('Error submitting contact form:', error);
-            alert('Terjadi kesalahan jaringan. Silakan periksa koneksi internet Anda dan coba lagi.');
-        })
-        .finally(() => {
-            // Restore button state
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnHTML;
-        });
     });
+}
+
+// Success handler called by the invisible iframe when submission completes
+function handleFormSubmitSuccess() {
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('contact-submit-btn');
+    
+    alert('Pesan berhasil terkirim! Terima kasih telah menghubungi saya. (Jika ini pertama kalinya, silakan periksa email masuk/spam Anda untuk mengaktifkan pengiriman dari FormSubmit).');
+    
+    if (form) form.reset();
+    
+    if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send Message <i class="fa-regular fa-paper-plane"></i>';
+    }
+    
+    // Reset submission state
+    if (typeof submitted !== 'undefined') {
+        submitted = false;
+    }
 }
 
 /* ==========================================================================

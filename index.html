@@ -442,7 +442,11 @@
                 </div>
 
                 <div class="contact-form-wrapper scroll-reveal reveal-slide-right">
-                    <form class="glass-card contact-form" id="contact-form">
+                    <form class="glass-card contact-form" id="contact-form" action="https://formsubmit.co/muhamadtomytobuhita@gmail.com" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+                        <!-- FormSubmit configurations -->
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="false">
+                        
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="user-name">Your Name</label>
@@ -486,6 +490,10 @@
             </button>
         </div>
     </footer>
+
+    <!-- Hidden iframe for background form submission -->
+    <script>var submitted = false;</script>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof submitted !== 'undefined' && submitted) { handleFormSubmitSuccess(); }"></iframe>
 
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
