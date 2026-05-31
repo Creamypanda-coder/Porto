@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollSpy();
     initFooterActions();
     initDownloadCV();
+    initContactForm();
+    initRefreshButton();
 });
 
 /* ==========================================================================
@@ -226,40 +228,26 @@ function initDownloadCV() {
    ========================================================================== */
 function initPreloader() {
     const preloader = document.getElementById('preloader');
-    const lottieContainer = document.getElementById('lottie-loader');
-    const fallbackSpinner = document.getElementById('fallback-spinner');
-
+    const percentEl = document.querySelector('.loading-percent');
     if (!preloader) return;
 
-    // Load Lottie Animation
-    let lottieAnim = null;
-    try {
-        if (typeof lottie !== 'undefined') {
-            lottieAnim = lottie.loadAnimation({
-                container: lottieContainer,
-                renderer: 'svg',
-                loop: true,
-                autoplay: true,
-                path: 'https://assets5.lottiefiles.com/packages/lf20_t9gk18fn.json' // Futuristic tech circle loader
-            });
+    // Premium loading percentage counter
+    let count = 0;
+    const duration = 1500; // Match minimum load time
+    const intervalTime = 30; 
 
-            // Once Lottie successfully loads, hide the fallback CSS spinner smoothly
-            lottieAnim.addEventListener('DOMLoaded', () => {
-                if (fallbackSpinner) {
-                    fallbackSpinner.style.transition = 'opacity 0.5s ease';
-                    fallbackSpinner.style.opacity = '0';
-                    setTimeout(() => {
-                        fallbackSpinner.style.display = 'none';
-                    }, 500);
-                }
-            });
+    const percentInterval = setInterval(() => {
+        count += Math.floor(Math.random() * 4) + 1; // Increment randomly for a tech feeling
+        if (count >= 100) {
+            count = 100;
+            clearInterval(percentInterval);
         }
-    } catch (error) {
-        console.warn("Lottie loading failed. Using premium CSS loader fallback.", error);
-    }
+        if (percentEl) {
+            percentEl.textContent = `${count.toString().padStart(2, '0')}%`;
+        }
+    }, intervalTime);
 
-    // Guarantee the user sees the elegant animation for at least 1.5s, then wait for page load to finish
-    const minLoadTime = new Promise(resolve => setTimeout(resolve, 1500));
+    const minLoadTime = new Promise(resolve => setTimeout(resolve, duration));
     const pageLoaded = new Promise(resolve => {
         if (document.readyState === 'complete') {
             resolve();
@@ -268,18 +256,91 @@ function initPreloader() {
         }
     });
 
-    // Fade out preloader when both conditions are met
+    // Fade out preloader when page finishes loading and loading reaches 100%
     Promise.all([minLoadTime, pageLoaded]).then(() => {
-        // Fade out the preloader overlay
-        preloader.classList.add('fade-out');
-        document.body.classList.remove('loading');
-
-        // Clean up animation after fade out to save memory
+        clearInterval(percentInterval);
+        if (percentEl) {
+            percentEl.textContent = '100%';
+        }
         setTimeout(() => {
-            preloader.style.display = 'none';
-            if (lottieAnim) {
-                lottieAnim.destroy();
-            }
-        }, 1200); // Matches the 1.2s CSS transition time
+            preloader.classList.add('fade-out');
+            document.body.classList.remove('loading');
+            
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 1000); // Wait for transition fade out to complete
+        }, 150); // Slight delay for the 100% to sit
     });
 }
+
+/* ==========================================================================
+   8.5. MANUAL PAGE REFRESH TRIGGER
+   ========================================================================== */
+function initRefreshButton() {
+    const refreshBtn = document.getElementById('refresh-page');
+    if (!refreshBtn) return;
+
+    refreshBtn.addEventListener('click', () => {
+        // Add rotation class for feedback
+        refreshBtn.classList.add('spinning');
+        
+        // Short delay to let the animation rotate beautifully before reload
+        setTimeout(() => {
+            window.location.reload();
+        }, 600);
+    });
+}
+
+/* ==========================================================================
+   9. CONTACT FORM AJAX SUBMISSION (FormSubmit Integration)
+   ========================================================================== */
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('contact-submit-btn');
+    if (!form || !submitBtn) return;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Show loading state (Premium loading effect)
+        const originalBtnHTML = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+
+        const formData = {
+            name: document.getElementById('user-name').value,
+            email: document.getElementById('user-email').value,
+            subject: document.getElementById('form-subject').value,
+            message: document.getElementById('form-message').value
+        };
+
+        // FormSubmit AJAX endpoint to deliver messages to owner's inbox
+        fetch('https://formsubmit.co/ajax/muhamadtomytobuhita@gmail.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success === 'true' || data.success === true) {
+                alert('Pesan berhasil terkirim! Terima kasih telah menghubungi saya. (Jika ini pertama kalinya, silakan periksa email masuk/spam Anda untuk mengaktifkan pengiriman dari FormSubmit).');
+                form.reset();
+            } else {
+                alert('Oops! Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.');
+            }
+        })
+        .catch(error => {
+            console.error('Error submitting contact form:', error);
+            alert('Terjadi kesalahan jaringan. Silakan periksa koneksi internet Anda dan coba lagi.');
+        })
+        .finally(() => {
+            // Restore button state
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHTML;
+        });
+    });
+}
+

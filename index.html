@@ -44,8 +44,21 @@
     <!-- PRELOADER -->
     <div id="preloader" class="preloader">
         <div class="preloader-content">
-            <div id="lottie-loader" class="lottie-container">
-                <div class="cyber-spinner" id="fallback-spinner"></div>
+            <div class="cyber-loader-wrapper">
+                <svg class="cyber-svg-loader" viewBox="0 0 100 100">
+                    <circle class="ring outer-ring" cx="50" cy="50" r="45"></circle>
+                    <circle class="ring middle-ring" cx="50" cy="50" r="36" stroke-dasharray="160 60"></circle>
+                    <circle class="ring inner-ring" cx="50" cy="50" r="28" stroke-dasharray="10 15"></circle>
+                    <circle class="core-dot" cx="50" cy="50" r="10"></circle>
+                </svg>
+                <div class="hud-corner top-left"></div>
+                <div class="hud-corner top-right"></div>
+                <div class="hud-corner bottom-left"></div>
+                <div class="hud-corner bottom-right"></div>
+            </div>
+            <div class="loader-status">
+                <span class="glitch-text" data-text="INITIALIZING SYSTEM...">INITIALIZING SYSTEM...</span>
+                <span class="loading-percent">00%</span>
             </div>
         </div>
     </div>
@@ -59,7 +72,7 @@
     <!-- Navigation Header -->
     <header class="navbar">
         <div class="navbar-container">
-            <a href="#hero" class="nav-logo" id="nav-logo">Tomi<span>.</span></a>
+            <a href="#hero" class="nav-logo" id="nav-logo">Welcome to my Porto<span>.</span></a>
 
             <nav class="nav-links-container" aria-label="Main Navigation">
                 <ul class="nav-menu" id="nav-menu">
@@ -72,6 +85,10 @@
             </nav>
 
             <div class="nav-actions">
+                <button id="refresh-page" class="theme-toggle-btn" aria-label="Refresh Page"
+                    title="Refresh Page">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme"
                     title="Toggle dark/light mode">
                     <i class="fa-solid fa-moon"></i>
@@ -184,7 +201,7 @@
                         </div>
                         <div class="info-row">
                             <span class="info-label"><i class="fa-regular fa-envelope"></i> Email</span>
-                            <a href="mailto:muhamad.muhamadtomytobuhita@gmail.com"
+                            <a href="mailto:muhamadtomytobuhita@gmail.com"
                                 class="info-value email-link">muhamadtomytobuhita@gmail.com</a>
                         </div>
                         <div class="info-row">
@@ -289,91 +306,88 @@
             </div>
 
             <div class="projects-grid">
-                <!-- Project 1: Aegis Shield Firewall -->
+                <!-- Project 1: Gate Automation -->
                 <article class="glass-card project-card hover-glow">
                     <div class="project-image-container">
-                        <img src="assets/project_aegis_shield.png" alt="Aegis Shield Dashboard Preview"
+                        <img src="assets/gate_automation.png" alt="Gate Automation System Preview"
                             class="project-img">
-                        <span class="project-category">Cyber Security</span>
+                        <span class="project-category">Automation</span>
                     </div>
                     <div class="project-details">
-                        <h3 class="project-title">Aegis Shield Firewall</h3>
+                        <h3 class="project-title">Gate Automation System</h3>
                         <p class="project-description">
-                            Dasbor pemantauan keamanan siber interaktif dengan deteksi intrusi real-time, log ancaman
-                            jaringan, dan visualisasi pemblokiran lalu lintas mencurigakan.
+                            Implementasi sistem pagar otomatis berbasis motor penggerak pintar dan sensor inframerah untuk keamanan akses masuk hunian dan area komersial secara efisien.
                         </p>
                         <div class="project-tech-stack">
-                            <span>Node.js</span>
-                            <span>D3.js</span>
-                            <span>Packet Filtering</span>
-                            <span>WebSockets</span>
+                            <span>Auto Gate Motor</span>
+                            <span>Remote Access</span>
+                            <span>Safety Sensors</span>
+                            <span>Smart Controller</span>
                         </div>
                         <div class="project-actions">
-                            <a href="#" class="btn btn-primary btn-sm">Demo <i
+                            <a href="#" class="btn btn-primary btn-sm">Details <i
                                     class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             <a href="https://github.com/m-tomi-tobuhita" class="project-repo-link" target="_blank"
                                 rel="noopener noreferrer">
-                                <i class="fa-brands fa-github"></i> Code
+                                <i class="fa-brands fa-github"></i> Reference
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <!-- Project 2: NetPulse Analyzer -->
+                <!-- Project 2: Server Rack & Switch Deployment -->
                 <article class="glass-card project-card hover-glow">
                     <div class="project-image-container">
-                        <img src="assets/project_synthwave_shop.png" alt="NetPulse Analyzer Preview"
+                        <img src="assets/server_rack_switch.png" alt="Server Rack & Switch Deployment Preview"
                             class="project-img">
-                        <span class="project-category">Network & QA</span>
+                        <span class="project-category">Network Infrastructure</span>
                     </div>
                     <div class="project-details">
-                        <h3 class="project-title">NetPulse Analyzer</h3>
+                        <h3 class="project-title">Server Rack & Switch Deployment</h3>
                         <p class="project-description">
-                            Sistem monitoring jaringan otomatis untuk menguji latensi, packet loss, dan throughput
-                            router/switch secara real-time dengan reporting QA otomatis.
+                            Pemasangan, perakitan, dan penataan manajemen kabel (cable management) rak server beserta konfigurasi network switch untuk infrastruktur jaringan kantor yang andal.
                         </p>
                         <div class="project-tech-stack">
-                            <span>Python</span>
-                            <span>SNMP</span>
-                            <span>Ping Engine</span>
-                            <span>InfluxDB</span>
+                            <span>Rack Server</span>
+                            <span>Switching Gear</span>
+                            <span>Cable Management</span>
+                            <span>Network Config</span>
                         </div>
                         <div class="project-actions">
-                            <a href="#" class="btn btn-primary btn-sm">Demo <i
+                            <a href="#" class="btn btn-primary btn-sm">Details <i
                                     class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             <a href="https://github.com/m-tomi-tobuhita" class="project-repo-link" target="_blank"
                                 rel="noopener noreferrer">
-                                <i class="fa-brands fa-github"></i> Code
+                                <i class="fa-brands fa-github"></i> Reference
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <!-- Project 3: Cortex VirtualLab -->
+                <!-- Project 3: CCTV, AP, & Fiber Optic Installation -->
                 <article class="glass-card project-card hover-glow">
                     <div class="project-image-container">
-                        <img src="assets/project_netrunner_chat.png" alt="Cortex VirtualLab Preview"
+                        <img src="assets/cctv_ap_fiber.png" alt="CCTV, Access Point & Fiber Optic Installation Preview"
                             class="project-img">
-                        <span class="project-category">Systems & VM</span>
+                        <span class="project-category">Telecommunication</span>
                     </div>
                     <div class="project-details">
-                        <h3 class="project-title">Cortex VirtualLab</h3>
+                        <h3 class="project-title">CCTV, Access Point & Fiber Optic Installation</h3>
                         <p class="project-description">
-                            Platform simulasi infrastruktur server virtual dan topologi jaringan untuk pengujian
-                            fungsionalitas dan skalabilitas sistem sebelum dideploy ke produksi.
+                            Instalasi kamera pengawas CCTV, pemasangan Wi-Fi Access Point untuk area luas, dan penarikan serta splicing kabel serat optik (Fiber Optic) berkecepatan tinggi.
                         </p>
                         <div class="project-tech-stack">
-                            <span>Docker</span>
-                            <span>Proxmox API</span>
-                            <span>VyOS</span>
-                            <span>Bash Scripting</span>
+                            <span>IP CCTV Camera</span>
+                            <span>Wireless Access Point</span>
+                            <span>Fiber Optic Splicing</span>
+                            <span>FTTH</span>
                         </div>
                         <div class="project-actions">
-                            <a href="#" class="btn btn-primary btn-sm">Demo <i
+                            <a href="#" class="btn btn-primary btn-sm">Details <i
                                     class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             <a href="https://github.com/m-tomi-tobuhita" class="project-repo-link" target="_blank"
                                 rel="noopener noreferrer">
-                                <i class="fa-brands fa-github"></i> Code
+                                <i class="fa-brands fa-github"></i> Reference
                             </a>
                         </div>
                     </div>
@@ -398,8 +412,7 @@
                             <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
                             <div class="contact-text">
                                 <span class="contact-label">Email</span>
-                                <a href="mailto:muhamadtomytobuhita@gmail.com 
-                                    class=" contact-value">muhamadtomyuhita@gmail.com</a>
+                                <a href="mailto:muhamadtomytobuhita@gmail.com" class="contact-value">muhamadtomytobuhita@gmail.com</a>
                             </div>
                         </div>
 
@@ -407,7 +420,7 @@
                             <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
                             <div class="contact-text">
                                 <span class="contact-label">Phone</span>
-                                <a href="tel:+6282239638386" class="contact-value">+62 822-3963-8386
+                                <a href="tel:+6282239638386" class="contact-value">+62 822-3963-8386</a>
                             </div>
                         </div>
 
@@ -422,32 +435,31 @@
                 </div>
 
                 <div class="contact-form-wrapper">
-                    <form class="glass-card contact-form" id="contact-form"
-                        onsubmit="event.preventDefault(); alert('Your message has been encrypted and sent! (Simulation)'); this.reset();">
+                    <form class="glass-card contact-form" id="contact-form">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="user-name">Your Name</label>
-                                <input type="text" id="user-name" class="form-input" placeholder="e.g., Jane Doe"
+                                <input type="text" id="user-name" name="name" class="form-input" placeholder="e.g., Jane Doe"
                                     required>
                             </div>
                             <div class="form-group">
                                 <label for="user-email">Your Email</label>
-                                <input type="email" id="user-email" class="form-input"
+                                <input type="email" id="user-email" name="email" class="form-input"
                                     placeholder="e.g., jane@example.com" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="form-subject">Subject</label>
-                            <input type="text" id="form-subject" class="form-input" placeholder="How can I help you?"
+                            <input type="text" id="form-subject" name="subject" class="form-input" placeholder="How can I help you?"
                                 required>
                         </div>
                         <div class="form-group">
                             <label for="form-message">Your Message</label>
-                            <textarea id="form-message" class="form-input form-textarea"
+                            <textarea id="form-message" name="message" class="form-input form-textarea"
                                 placeholder="Type your message here..." rows="5" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-submit">
+                        <button type="submit" class="btn btn-primary btn-submit" id="contact-submit-btn">
                             Send Message <i class="fa-regular fa-paper-plane"></i>
                         </button>
                     </form>
