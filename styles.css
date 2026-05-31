@@ -40,21 +40,21 @@
 
 /* Light Theme Variables */
 body.light-theme {
-    --bg-primary: hsl(220, 30%, 97%);
-    --bg-secondary: rgba(255, 255, 255, 0.7);
-    --bg-glow: rgba(235, 240, 246, 0.5);
-    --text-primary: hsl(224, 25%, 12%);
-    --text-secondary: hsl(224, 15%, 35%);
-    --text-muted: hsl(224, 10%, 55%);
-    --border-color: rgba(0, 0, 0, 0.07);
-    --border-hover: rgba(0, 0, 0, 0.15);
+    --bg-primary: hsl(216, 20%, 93%);
+    --bg-secondary: rgba(255, 255, 255, 0.88);
+    --bg-glow: rgba(219, 228, 242, 0.6);
+    --text-primary: hsl(222, 47%, 11%);
+    --text-secondary: hsl(217, 33%, 22%);
+    --text-muted: hsl(215, 20%, 38%);
+    --border-color: rgba(15, 23, 42, 0.1);
+    --border-hover: rgba(15, 23, 42, 0.2);
     --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
     --secondary-gradient: linear-gradient(135deg, #2563eb 0%, #0891b2 100%);
-    --card-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
-    --glow-color: rgba(99, 102, 241, 0.05);
-    --body-glow: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.02), transparent 70%);
-    --navbar-bg: rgba(245, 247, 250, 0.8);
-    --input-bg: rgba(0, 0, 0, 0.02);
+    --card-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+    --glow-color: rgba(79, 70, 229, 0.06);
+    --body-glow: radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.03), transparent 70%);
+    --navbar-bg: rgba(230, 235, 242, 0.88);
+    --input-bg: rgba(15, 23, 42, 0.03);
 }
 
 /* --- 2. RESET & BASE STYLES --- */
