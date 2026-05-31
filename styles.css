@@ -1507,6 +1507,20 @@ body.light-theme .form-input:focus {
         gap: 20px;
         text-align: center;
     }
+
+    /* Disable 3D transforms for scroll-reveals on mobile to ensure clean layout */
+    .scroll-reveal.reveal-slide-up,
+    .scroll-reveal.reveal-slide-left,
+    .scroll-reveal.reveal-slide-right,
+    .scroll-reveal.reveal-zoom-in {
+        transform: translateY(20px) scale(0.98);
+        transform-origin: center center;
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .scroll-reveal.active {
+        transform: translateY(0) scale(1);
+    }
 }
 
 @media (max-width: 480px) {
