@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhamad Tomi Tobuhita | Portfolio</title>
+    <title>tomi-portofolio</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <!-- SEO Meta Tags -->
     <meta name="description"
         content="Portfolio & CV of Muhamad Tomi Tobuhita, IT Engineer, Network Specialist, and QA Services Professional specializing in high-performance network engineering and robust systems infrastructure.">
@@ -43,23 +44,19 @@
 
     <!-- PRELOADER -->
     <div id="preloader" class="preloader">
-        <div class="preloader-content">
-            <div class="cyber-loader-wrapper">
-                <svg class="cyber-svg-loader" viewBox="0 0 100 100">
-                    <circle class="ring outer-ring" cx="50" cy="50" r="45"></circle>
-                    <circle class="ring middle-ring" cx="50" cy="50" r="36" stroke-dasharray="160 60"></circle>
-                    <circle class="ring inner-ring" cx="50" cy="50" r="28" stroke-dasharray="10 15"></circle>
-                    <circle class="core-dot" cx="50" cy="50" r="10"></circle>
-                </svg>
-                <div class="hud-corner top-left"></div>
-                <div class="hud-corner top-right"></div>
-                <div class="hud-corner bottom-left"></div>
-                <div class="hud-corner bottom-right"></div>
-            </div>
-            <div class="loader-status">
-                <span class="glitch-text" data-text="INITIALIZING SYSTEM...">INITIALIZING SYSTEM...</span>
-                <span class="loading-percent">00%</span>
-            </div>
+        <div class="loader-wrapper">
+            <span class="loader-letter">G</span>
+            <span class="loader-letter">e</span>
+            <span class="loader-letter">n</span>
+            <span class="loader-letter">e</span>
+            <span class="loader-letter">r</span>
+            <span class="loader-letter">a</span>
+            <span class="loader-letter">t</span>
+            <span class="loader-letter">i</span>
+            <span class="loader-letter">n</span>
+            <span class="loader-letter">g</span>
+
+            <div class="loader"></div>
         </div>
     </div>
     <!-- Blurred Aurora background blobs for premium depth -->
@@ -72,7 +69,7 @@
     <!-- Navigation Header -->
     <header class="navbar">
         <div class="navbar-container">
-            <a href="#hero" class="nav-logo" id="nav-logo">Welcome to my Porto<span>.</span></a>
+            <a href="#hero" class="nav-logo" id="nav-logo">tomi-portofolio<span>.</span></a>
 
             <nav class="nav-links-container" aria-label="Main Navigation">
                 <ul class="nav-menu" id="nav-menu">
@@ -85,6 +82,10 @@
             </nav>
 
             <div class="nav-actions">
+                <button id="lang-toggle" class="theme-toggle-btn lang-toggle-btn" aria-label="Toggle Language"
+                    title="Toggle ID/EN" style="font-weight: 700; font-size: 14px;">
+                    EN
+                </button>
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme"
                     title="Toggle dark/light mode">
                     <i class="fa-solid fa-moon"></i>
@@ -139,12 +140,17 @@
                         <!-- Planetary/Orbital Ring animations in the background -->
                         <div class="orbital-ring ring-1"></div>
                         <div class="orbital-ring ring-2"></div>
+                        <div class="orbital-ring ring-3"></div>
+                        <div class="pulse-ring"></div>
 
                         <!-- Main 3D Tilt Glassmorphic Card -->
                         <div class="avatar-tilt-card" id="avatar-card">
                             <div class="avatar-image-container">
                                 <img src="assets/cyberpunk_avatar.jpg" alt="Muhamad Tomi Tobuhita" class="avatar-img">
                             </div>
+
+                            <!-- Popup Text -->
+                            <div class="avatar-popup" id="avatar-popup">Hy!</div>
 
                             <!-- Floating Badges -->
                             <div class="floating-badge badge-experience">

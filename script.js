@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initTypingEffect();
     initScrollReveal();
+    initLanguageSwitcher();
+    initAvatarInteraction();
 });
 
 /* ==========================================================================
@@ -238,6 +240,10 @@ function initPreloader() {
         if (percentEl) {
             percentEl.textContent = `${count.toString().padStart(2, '0')}%`;
         }
+        const bar = document.getElementById('preloader-bar');
+        if (bar) {
+            bar.style.width = `${count}%`;
+        }
     }, intervalTime);
 
     const minLoadTime = new Promise(resolve => setTimeout(resolve, duration));
@@ -315,12 +321,14 @@ function initTypingEffect() {
     const cursorSpan = document.querySelector(".cursor");
     if (!typedTextSpan) return;
 
-    const textArray = [
-        "IT Engineer",
-        "Network Specialist",
-        "QA Services Professional",
-        "Systems Infrastructure Specialist"
-    ];
+    if (!window.typingTextArray) {
+        window.typingTextArray = [
+            "IT Engineer",
+            "Network Specialist",
+            "QA Services Professional",
+            "Systems Infrastructure Specialist"
+        ];
+    }
     const typingDelay = 100;
     const erasingDelay = 50;
     const newTextDelay = 2000; // Delay between current and next text
@@ -331,11 +339,13 @@ function initTypingEffect() {
     typedTextSpan.textContent = "";
 
     function type() {
-        if (charIndex < textArray[textArrayIndex].length) {
+        const currentTextArray = window.typingTextArray;
+        if (textArrayIndex >= currentTextArray.length) textArrayIndex = 0;
+        if (charIndex < currentTextArray[textArrayIndex].length) {
             if (cursorSpan && !cursorSpan.classList.contains("typing")) {
                 cursorSpan.classList.add("typing");
             }
-            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+            typedTextSpan.textContent += currentTextArray[textArrayIndex].charAt(charIndex);
             charIndex++;
             setTimeout(type, typingDelay);
         } else {
@@ -347,11 +357,12 @@ function initTypingEffect() {
     }
 
     function erase() {
+        const currentTextArray = window.typingTextArray;
         if (charIndex > 0) {
             if (cursorSpan && !cursorSpan.classList.contains("typing")) {
                 cursorSpan.classList.add("typing");
             }
-            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+            typedTextSpan.textContent = currentTextArray[textArrayIndex].substring(0, charIndex - 1);
             charIndex--;
             setTimeout(erase, erasingDelay);
         } else {
@@ -359,7 +370,7 @@ function initTypingEffect() {
                 cursorSpan.classList.remove("typing");
             }
             textArrayIndex++;
-            if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+            if (textArrayIndex >= currentTextArray.length) textArrayIndex = 0;
             setTimeout(type, typingDelay + 500);
         }
     }
@@ -432,5 +443,203 @@ function decryptTextEffect(element) {
         // Speed up animation slightly for shorter strings
         iterations += originalText.length > 25 ? 0.75 : 0.45;
     }, 20);
+}
+
+/* ==========================================================================
+   11. LANGUAGE SWITCHER (ID/EN)
+   ========================================================================== */
+function initLanguageSwitcher() {
+    const langToggle = document.getElementById('lang-toggle');
+    if (!langToggle) return;
+
+    // Translations Dictionary
+    const translations = {
+        // Navigation
+        '.nav-menu li:nth-child(1) a': { en: 'Home', id: 'Beranda' },
+        '.nav-menu li:nth-child(2) a': { en: 'About', id: 'Tentang' },
+        '.nav-menu li:nth-child(3) a': { en: 'Skills', id: 'Keahlian' },
+        '.nav-menu li:nth-child(4) a': { en: 'Projects', id: 'Proyek' },
+        '.nav-menu li:nth-child(5) a': { en: 'Contact', id: 'Kontak' },
+
+        // Hero Section
+        '.hero-info .badge': { en: 'IT Engineering, Network, QA Services', id: 'Teknik IT, Jaringan, Layanan QA' },
+        '.hero-description': { 
+            en: 'I build reliable, scalable, and secure IT infrastructure solutions, combining strong network engineering, quality assurance services, and modern technology practices to ensure high-performance, stable, and efficient systems.', 
+            id: 'Saya merancang dan mengelola infrastruktur IT yang tangguh, aman, dan mudah dikembangkan. Dengan menggabungkan keahlian di bidang jaringan, layanan Quality Assurance (QA), serta teknologi modern, saya memastikan sistem Anda berjalan dengan performa maksimal, stabil, dan efisien.' 
+        },
+        '.hero-ctas .btn-primary': { en: 'View My Work <i class="fa-solid fa-arrow-right"></i>', id: 'Lihat Karya Saya <i class="fa-solid fa-arrow-right"></i>' },
+        '.hero-ctas .btn-secondary': { en: 'Contact Me', id: 'Hubungi Saya' },
+        '.badge-experience .badge-text': { en: 'Years<br>Experience', id: 'Tahun<br>Pengalaman' },
+
+        // About Section
+        '.about-section .section-tagline': { en: 'About Me', id: 'Tentang Saya' },
+        '.about-section .section-title': { en: 'About Me', id: 'Tentang Saya' },
+        '.about-details .paragraph:nth-of-type(1)': { 
+            en: 'I am an <strong>IT Engineer</strong>, <strong>Network Specialist</strong>, and <strong>QA Services Professional</strong> with a deep passion for building reliable, secure, and high-performance IT infrastructure. Armed with experience in network management, system maintenance, troubleshooting, and quality assurance services, I always strive to deliver efficient technology solutions that ensure stability, scalability, and operational excellence.', 
+            id: 'Halo! Saya adalah seorang <strong>IT Engineer</strong>, <strong>Spesialis Jaringan</strong>, sekaligus <strong>Profesional di bidang QA (Quality Assurance)</strong> yang sangat antusias dalam membangun infrastruktur IT yang andal, aman, dan punya performa tinggi. Berbekal pengalaman saya di manajemen jaringan, perawatan sistem, hingga pemecahan masalah (*troubleshooting*), saya selalu fokus memberikan solusi teknologi terbaik agar operasional bisnis berjalan stabil dan siap menghadapi perkembangan ke depan.' 
+        },
+        '.about-details .paragraph:nth-of-type(2)': { 
+            en: 'My primary focus lies in managing and optimizing IT infrastructure, network systems, and QA services to ensure secure, stable, and efficient operations. I specialize in network troubleshooting, system monitoring, infrastructure maintenance, and technical support while implementing modern IT solutions that improve performance, reliability, and operational continuity.', 
+            id: 'Fokus utama pekerjaan saya ada pada pengelolaan dan optimalisasi infrastruktur IT, jaringan, dan pengujian sistem untuk memastikan semuanya beroperasi dengan aman dan efisien. Saya terbiasa menangani kendala jaringan (*troubleshooting*), memantau kesehatan server, dan memberikan dukungan teknis menyeluruh. Tujuan akhir saya selalu sama: menghadirkan solusi IT modern yang bisa diandalkan kapan pun dibutuhkan.' 
+        },
+        '#download-cv': { en: 'Download CV <i class="fa-solid fa-download"></i>', id: 'Unduh CV <i class="fa-solid fa-download"></i>' },
+        
+        '.info-row:nth-child(1) .info-label': { en: '<i class="fa-regular fa-user"></i> Name', id: '<i class="fa-regular fa-user"></i> Nama' },
+        '.info-row:nth-child(3) .info-label': { en: '<i class="fa-solid fa-map-pin"></i> Location', id: '<i class="fa-solid fa-map-pin"></i> Lokasi' },
+        '.info-row:nth-child(4) .info-label': { en: '<i class="fa-regular fa-calendar-check"></i> Availability', id: '<i class="fa-regular fa-calendar-check"></i> Ketersediaan' },
+        '.availability-status': { en: '<span class="pulse-dot"></span> Available for work', id: '<span class="pulse-dot"></span> Tersedia' },
+
+        // Skills Section
+        '.skills-section .section-tagline': { en: 'My Skills', id: 'Keahlian Saya' },
+        '.skills-section .section-title': { en: 'Technologies I Work With', id: 'Teknologi yang Saya Gunakan' },
+        
+        '.skills-grid .skill-card:nth-child(1) .skill-name': { en: 'Network Engineering', id: 'Rekayasa Jaringan' },
+        '.skills-grid .skill-card:nth-child(1) .skill-category': { en: 'Routing, Switching & Protocols', id: 'Routing, Switching, & Konfigurasi Protokol' },
+        '.skills-grid .skill-card:nth-child(2) .skill-name': { en: 'Systems & Servers', id: 'Sistem & Server' },
+        '.skills-grid .skill-card:nth-child(2) .skill-category': { en: 'Linux, Windows & VM Management', id: 'Manajemen Server Linux, Windows & Virtual Machine' },
+        '.skills-grid .skill-card:nth-child(3) .skill-name': { en: 'Quality Assurance (QA)', id: 'Quality Assurance (QA)' },
+        '.skills-grid .skill-card:nth-child(3) .skill-category': { en: 'Manual, Automated & Stability Testing', id: 'Testing Manual, Otomatis, & Uji Stabilitas Sistem' },
+        '.skills-grid .skill-card:nth-child(4) .skill-name': { en: 'IT Security & Support', id: 'Keamanan & Dukungan IT' },
+        '.skills-grid .skill-card:nth-child(4) .skill-category': { en: 'Firewalls, Diagnostics & Monitoring', id: 'Setup Firewall, Diagnostik, & Monitoring Performa' },
+
+        // Projects Section
+        '.projects-section .section-tagline': { en: 'My Projects', id: 'Proyek Saya' },
+        '.projects-section .section-title': { en: 'Featured Projects', id: 'Proyek Unggulan' },
+        '.projects-header .btn-secondary': { en: 'View All Projects', id: 'Lihat Semua Proyek' },
+        
+        '.projects-grid article:nth-child(1) .project-category': { en: 'Automation', id: 'Otomasi' },
+        '.projects-grid article:nth-child(1) .project-title': { en: 'Gate Automation System', id: 'Sistem Pagar Otomatis' },
+        '.projects-grid article:nth-child(1) .project-description': { 
+            en: 'Implementation of an automatic gate system based on smart drive motors and infrared sensors for efficient residential and commercial access security.', 
+            id: 'Sistem pintar untuk otomatisasi pagar menggunakan motor penggerak dan sensor inframerah. Solusi praktis dan aman untuk mempermudah akses masuk ke perumahan maupun area komersial.' 
+        },
+        
+        '.projects-grid article:nth-child(2) .project-category': { en: 'Network Infrastructure', id: 'Infrastruktur Jaringan' },
+        '.projects-grid article:nth-child(2) .project-title': { en: 'Server Rack & Switch Deployment', id: 'Penempatan Rak Server & Switch' },
+        '.projects-grid article:nth-child(2) .project-description': { 
+            en: 'Installation, assembly, and cable management of server racks along with network switch configuration for reliable office network infrastructure.', 
+            id: 'Pekerjaan perakitan rak server, instalasi perangkat jaringan, hingga cable management yang rapi. Memastikan konfigurasi switch berjalan optimal untuk jaringan kantor yang stabil dan bebas hambatan.' 
+        },
+        
+        '.projects-grid article:nth-child(3) .project-category': { en: 'Telecommunication', id: 'Telekomunikasi' },
+        '.projects-grid article:nth-child(3) .project-title': { en: 'CCTV, Access Point & Fiber Optic Installation', id: 'Instalasi CCTV, Access Point & Fiber Optik' },
+        '.projects-grid article:nth-child(3) .project-description': { 
+            en: 'Installation of CCTV surveillance cameras, deployment of Wi-Fi Access Points for wide areas, and pulling and splicing of high-speed Fiber Optic cables.', 
+            id: 'Pemasangan infrastruktur telekomunikasi menyeluruh, mulai dari kamera CCTV untuk keamanan, instalasi Wi-Fi Access Point agar sinyal merata, hingga penarikan dan penyambungan kabel Fiber Optic untuk koneksi internet super cepat.' 
+        },
+        
+        '.projects-grid article:nth-child(1) .btn-primary': { en: 'Details <i class="fa-solid fa-arrow-up-right-from-square"></i>', id: 'Detail <i class="fa-solid fa-arrow-up-right-from-square"></i>' },
+        '.projects-grid article:nth-child(2) .btn-primary': { en: 'Details <i class="fa-solid fa-arrow-up-right-from-square"></i>', id: 'Detail <i class="fa-solid fa-arrow-up-right-from-square"></i>' },
+        '.projects-grid article:nth-child(3) .btn-primary': { en: 'Details <i class="fa-solid fa-arrow-up-right-from-square"></i>', id: 'Detail <i class="fa-solid fa-arrow-up-right-from-square"></i>' },
+        
+        '.projects-grid article:nth-child(1) .project-repo-link': { en: '<i class="fa-brands fa-github"></i> Reference', id: '<i class="fa-brands fa-github"></i> Referensi' },
+        '.projects-grid article:nth-child(2) .project-repo-link': { en: '<i class="fa-brands fa-github"></i> Reference', id: '<i class="fa-brands fa-github"></i> Referensi' },
+        '.projects-grid article:nth-child(3) .project-repo-link': { en: '<i class="fa-brands fa-github"></i> Reference', id: '<i class="fa-brands fa-github"></i> Referensi' },
+
+        // Contact Section
+        '.contact-section .section-tagline': { en: 'Contact Me', id: 'Hubungi Saya' },
+        '.contact-section .section-title': { en: 'Get In Touch', id: 'Mari Terhubung' },
+        '.contact-intro': { en: 'Have a project in mind or want to work together? Feel free to send me a message and I\'ll get back to you as soon as possible.', id: 'Ada ide proyek menarik, butuh konsultasi, atau sekadar ingin berkolaborasi? Jangan ragu untuk mengirim pesan! Saya akan merespons secepat mungkin.' },
+        
+        '.contact-item:nth-child(1) .contact-label': { en: 'Email', id: 'Email' },
+        '.contact-item:nth-child(2) .contact-label': { en: 'Phone', id: 'Telepon' },
+        '.contact-item:nth-child(3) .contact-label': { en: 'Location', id: 'Lokasi' },
+        
+        '.contact-form label[for="user-name"]': { en: 'Your Name', id: 'Nama Anda' },
+        '.contact-form label[for="user-email"]': { en: 'Your Email', id: 'Email Anda' },
+        '.contact-form label[for="form-subject"]': { en: 'Subject', id: 'Subjek' },
+        '.contact-form label[for="form-message"]': { en: 'Your Message', id: 'Pesan Anda' },
+        
+        '#contact-submit-btn': { en: 'Send Message <i class="fa-regular fa-paper-plane"></i>', id: 'Kirim Pesan <i class="fa-regular fa-paper-plane"></i>' },
+    };
+
+    const placeholders = {
+        '#user-name': { en: 'e.g., Jane Doe', id: 'mis., Budi Santoso' },
+        '#user-email': { en: 'e.g., jane@example.com', id: 'mis., budi@example.com' },
+        '#form-subject': { en: 'How can I help you?', id: 'Apa yang bisa saya bantu?' },
+        '#form-message': { en: 'Type your message here...', id: 'Ketik pesan Anda di sini...' },
+    };
+
+    const typingTexts = {
+        en: [
+            "IT Engineer",
+            "Network Specialist",
+            "QA Services Professional",
+            "Systems Infrastructure Specialist"
+        ],
+        id: [
+            "IT Engineer",
+            "Ahli Jaringan Komputer",
+            "QA & System Tester",
+            "Spesialis Infrastruktur IT"
+        ]
+    };
+
+    let currentLang = localStorage.getItem('language') || 'en';
+    
+    function applyLanguage(lang) {
+        langToggle.textContent = lang === 'en' ? 'EN' : 'ID';
+        document.documentElement.lang = lang; // Update HTML lang attribute
+        
+        for (const [selector, textMap] of Object.entries(translations)) {
+            const el = document.querySelector(selector);
+            if (el) {
+                if (el.dataset.originalText || el.classList.contains('section-title') || el.classList.contains('section-tagline')) {
+                    el.dataset.originalText = textMap[lang];
+                    if (el.classList.contains('active')) {
+                         el.innerHTML = textMap[lang];
+                    }
+                } else {
+                    el.innerHTML = textMap[lang];
+                }
+            }
+        }
+        
+        for (const [selector, textMap] of Object.entries(placeholders)) {
+            const el = document.querySelector(selector);
+            if (el) {
+                el.placeholder = textMap[lang];
+            }
+        }
+
+        window.typingTextArray = typingTexts[lang];
+    }
+
+    window.typingTextArray = typingTexts[currentLang];
+    applyLanguage(currentLang);
+
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'id' : 'en';
+        localStorage.setItem('language', currentLang);
+        applyLanguage(currentLang);
+    });
+}
+
+/* ==========================================================================
+   12. AVATAR CLICK INTERACTION
+   ========================================================================== */
+function initAvatarInteraction() {
+    const card = document.getElementById('avatar-card');
+    if (!card) return;
+
+    let clickTimeout;
+
+    card.addEventListener('click', () => {
+        // Reset classes to restart animation if clicked repeatedly
+        card.classList.remove('avatar-click-anim', 'show-popup');
+        
+        // Force reflow
+        void card.offsetWidth; 
+        
+        // Add animation and show popup
+        card.classList.add('avatar-click-anim', 'show-popup');
+        
+        clearTimeout(clickTimeout);
+        
+        // Hide popup after 2.5 seconds
+        clickTimeout = setTimeout(() => {
+            card.classList.remove('show-popup');
+        }, 2500);
+    });
 }
 
