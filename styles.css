@@ -147,18 +147,21 @@ body.light-theme .aurora-bg {
 .blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(140px);
+    /* Dikurangi dari 140px ke 80px — jauh lebih ringan di GPU */
+    filter: blur(80px);
     mix-blend-mode: screen;
-    opacity: 0.15;
-    animation: floatBlob 25s infinite alternate ease-in-out;
-    /* Pastikan blob tidak bisa scroll keluar */
+    opacity: 0.18;
+    animation: floatBlob 30s infinite alternate ease-in-out;
     max-width: 100vw;
+    /* Force GPU layer untuk animasi lebih smooth */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 body.light-theme .blob {
     mix-blend-mode: multiply;
     opacity: 0.12;
-    filter: blur(120px);
+    filter: blur(70px);
 }
 
 .blob-purple {
@@ -1719,18 +1722,20 @@ body.light-theme .form-input:focus {
         height: 44px;
     }
 
-    /* Disable 3D transforms for scroll-reveals on mobile to ensure clean layout */
+    /* Scroll reveal di mobile - simpel saja */
+    .scroll-reveal {
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
     .scroll-reveal.reveal-slide-up,
     .scroll-reveal.reveal-slide-left,
     .scroll-reveal.reveal-slide-right,
     .scroll-reveal.reveal-zoom-in {
-        transform: translateY(20px) scale(0.98);
-        transform-origin: center center;
-        transition: opacity 0.8s ease, transform 0.8s ease;
+        transform: translateY(20px);
     }
     
     .scroll-reveal.active {
-        transform: translateY(0) scale(1);
+        transform: translate(0, 0) scale(1);
     }
 }
 
@@ -2172,45 +2177,40 @@ body.light-theme .scroll-top-btn.visible:hover {
                 0 0 12px 2px rgba(147, 51, 234, 0.15);
 }
 
-/* --- 14.5. SCROLL REVEAL ANIMATIONS (PREMIUM 3D TILT & SPRING) --- */
+/* --- 14.5. SCROLL REVEAL ANIMATIONS (SMOOTH & PERFORMANT) --- */
 .scroll-reveal {
     opacity: 0;
-    filter: blur(16px);
-    will-change: transform, opacity, filter;
-    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
-                filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Hapus filter:blur — sangat berat di CPU/GPU */
+    will-change: transform, opacity;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scroll-reveal.reveal-fade {
-    transform: scale(0.95);
+    transform: scale(0.97);
 }
 
+/* Hanya pakai translateY — jauh lebih smooth dari 3D perspective */
 .scroll-reveal.reveal-slide-up {
-    transform: perspective(1200px) rotateX(15deg) translateY(80px) scale(0.94);
-    transform-origin: bottom center;
+    transform: translateY(40px);
 }
 
 .scroll-reveal.reveal-slide-left {
-    transform: perspective(1200px) rotateY(-15deg) translateX(-80px) scale(0.94);
-    transform-origin: center right;
+    transform: translateX(-40px);
 }
 
 .scroll-reveal.reveal-slide-right {
-    transform: perspective(1200px) rotateY(15deg) translateX(80px) scale(0.94);
-    transform-origin: center left;
+    transform: translateX(40px);
 }
 
 .scroll-reveal.reveal-zoom-in {
-    transform: perspective(1200px) translateZ(-100px) scale(0.85);
-    transform-origin: center center;
+    transform: scale(0.93);
 }
 
-/* Active class applied by JavaScript when element enters viewport */
+/* Active state — simple dan smooth */
 .scroll-reveal.active {
     opacity: 1;
-    filter: blur(0px);
-    transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0) scale(1);
+    transform: translate(0, 0) scale(1);
 }
 
 /* Staggered Delay Utilities */
