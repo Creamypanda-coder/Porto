@@ -1489,9 +1489,19 @@ body.light-theme .form-input:focus {
     .contact-grid {
         gap: 40px;
     }
+
+    .main-content {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
 }
 
 @media (max-width: 768px) {
+    /* === GLOBAL MOBILE PADDING === */
+    .main-content {
+        padding: 80px 20px 0 20px;
+    }
+
     .nav-logo {
         font-size: 22px;
     }
@@ -1541,12 +1551,30 @@ body.light-theme .form-input:focus {
         transform: translateY(-8px) rotate(-45deg);
     }
     
+    /* Section spacing — lebih compact di mobile */
+    .hero-section {
+        padding: 40px 0 60px 0;
+        min-height: auto;
+    }
+
+    .about-section,
+    .skills-section,
+    .projects-section,
+    .contact-section {
+        padding: 70px 0;
+    }
+
+    .section-title {
+        font-size: 34px;
+        margin-bottom: 40px;
+    }
+
     /* Layouts switch to single column */
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 60px;
+        gap: 48px;
         text-align: center;
-        padding-top: 40px;
+        padding-top: 20px;
     }
     
     .hero-info {
@@ -1554,47 +1582,97 @@ body.light-theme .form-input:focus {
     }
     
     .hero-title {
-        font-size: 48px;
+        font-size: 44px;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
     }
     
     .hero-description {
         margin-left: auto;
         margin-right: auto;
+        max-width: 500px;
     }
     
     .hero-ctas {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .social-links {
+        justify-content: center;
+        flex-wrap: wrap;
     }
     
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 36px;
     }
     
     .info-table-card {
-        padding: 24px;
+        padding: 20px;
+    }
+
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 16px 0;
+    }
+
+    .info-value {
+        text-align: left;
+        word-break: break-word;
     }
     
     .contact-grid {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 36px;
+    }
+
+    .contact-details-list {
+        gap: 16px;
+    }
+
+    .contact-item {
+        gap: 14px;
     }
     
     .projects-header {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        gap: 16px;
         text-align: center;
     }
     
     .projects-header .section-title {
         text-align: center;
+        margin-bottom: 0;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .footer-container {
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
         text-align: center;
+    }
+
+    .scroll-top-btn {
+        bottom: 20px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
     }
 
     /* Disable 3D transforms for scroll-reveals on mobile to ensure clean layout */
@@ -1613,20 +1691,35 @@ body.light-theme .form-input:focus {
 }
 
 @media (max-width: 480px) {
+    /* Extra compact padding on very small screens */
+    .main-content {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
     .nav-logo {
         font-size: 18px;
     }
 
     .hero-title {
-        font-size: 38px;
+        font-size: 34px;
+        letter-spacing: -1px;
     }
     
     .hero-subtitle {
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    .hero-description {
+        font-size: 15px;
     }
     
     .section-title {
-        font-size: 32px;
+        font-size: 28px;
+    }
+
+    .section-tagline {
+        font-size: 12px;
     }
     
     .form-row {
@@ -1635,20 +1728,41 @@ body.light-theme .form-input:focus {
     }
     
     .avatar-card-wrapper {
-        width: 280px;
-        height: 360px;
+        width: 260px;
+        height: 340px;
     }
     
     .badge-experience {
-        left: -15px;
+        left: -10px;
+        font-size: 12px;
+        padding: 8px 10px;
     }
     
     .badge-code {
-        right: -15px;
+        right: -10px;
     }
     
     .contact-form {
-        padding: 24px;
+        padding: 20px 16px;
+    }
+
+    .glass-card {
+        padding: 20px 16px;
+    }
+
+    .skill-card {
+        padding: 20px 16px;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .social-links a {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
     }
 }
 
