@@ -2313,6 +2313,12 @@ body.light-theme .scroll-top-btn.visible:hover {
 .loader-letter:nth-child(10) {
   animation-delay: 0.9s;
 }
+.loader-letter:nth-child(11) {
+  animation-delay: 1s;
+}
+.loader-letter:nth-child(12) {
+  animation-delay: 1.1s;
+}
 
 @keyframes loader-letter-anim {
   0%,
