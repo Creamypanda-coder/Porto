@@ -503,8 +503,8 @@ function initLanguageSwitcher() {
         '.skills-grid .skill-card:nth-child(4) .skill-category': { en: 'Firewalls, Diagnostics & Monitoring', id: 'Setup Firewall, Diagnostik, & Monitoring Performa' },
 
         // Projects Section
-        '.projects-section .section-tagline': { en: 'My Projects', id: 'Proyek Saya' },
-        '.projects-section .section-title': { en: 'Featured Projects', id: 'Proyek Unggulan' },
+        '.projects-section .section-tagline': { en: 'What Can I Do', id: 'Apa Yang Bisa Saya Lakukan' },
+        '.projects-section .section-title': { en: 'Services & Capabilities', id: 'Layanan & Kemampuan' },
         '.projects-header .btn-secondary': { en: 'View All Projects', id: 'Lihat Semua Proyek' },
         
         '.projects-grid article:nth-child(1) .project-category': { en: 'Automation', id: 'Otomasi' },
@@ -535,6 +535,42 @@ function initLanguageSwitcher() {
         '.projects-grid article:nth-child(1) .project-repo-link': { en: '<i class="fa-brands fa-github"></i> Reference', id: '<i class="fa-brands fa-github"></i> Referensi' },
         '.projects-grid article:nth-child(2) .project-repo-link': { en: '<i class="fa-brands fa-github"></i> Reference', id: '<i class="fa-brands fa-github"></i> Referensi' },
         '.projects-grid article:nth-child(3) .project-repo-link': { en: '<i class="fa-brands fa-github"></i> Reference', id: '<i class="fa-brands fa-github"></i> Referensi' },
+        
+        '.projects-grid article:nth-child(4) .project-category': { en: 'UI/UX Design', id: 'Desain UI/UX' },
+        '.projects-grid article:nth-child(4) .project-title': { en: 'UI/UX Design Services', id: 'Layanan Desain UI/UX' },
+        '.projects-grid article:nth-child(4) .project-description': { 
+            en: 'Designing modern, user-friendly, and responsive user interfaces (UI) and user experiences (UX) for mobile and web applications with high-fidelity prototypes.', 
+            id: 'Merancang antarmuka pengguna (UI) dan pengalaman pengguna (UX) yang modern, ramah pengguna, dan responsif untuk aplikasi mobile dan web dengan prototipe high-fidelity.' 
+        },
+        '.projects-grid article:nth-child(4) .btn-primary': { en: 'Details <i class="fa-solid fa-arrow-up-right-from-square"></i>', id: 'Detail <i class="fa-solid fa-arrow-up-right-from-square"></i>' },
+        '.projects-grid article:nth-child(4) .project-repo-link': { en: '<i class="fa-brands fa-github"></i> Reference', id: '<i class="fa-brands fa-github"></i> Referensi' },
+
+        '.projects-grid article:nth-child(5) .project-category': { en: 'Web Development', id: 'Pengembangan Web' },
+        '.projects-grid article:nth-child(5) .project-title': { en: 'Web Development', id: 'Pengembangan Website' },
+        '.projects-grid article:nth-child(5) .project-description': { 
+            en: 'Building responsive, fast, and interactive websites and web applications using modern web technologies tailored to business requirements.', 
+            id: 'Membangun website dan aplikasi web yang responsif, cepat, dan interaktif menggunakan teknologi web modern yang disesuaikan dengan kebutuhan bisnis.' 
+        },
+        '.projects-grid article:nth-child(5) .btn-primary': { en: 'Details <i class="fa-solid fa-arrow-up-right-from-square"></i>', id: 'Detail <i class="fa-solid fa-arrow-up-right-from-square"></i>' },
+        '.projects-grid article:nth-child(5) .project-repo-link': { en: '<i class="fa-brands fa-github"></i> Reference', id: '<i class="fa-brands fa-github"></i> Referensi' },
+
+        '.projects-grid article:nth-child(6) .project-category': { en: 'Android Development', id: 'Pengembangan Android' },
+        '.projects-grid article:nth-child(6) .project-title': { en: 'Android App Development', id: 'Pengembangan Aplikasi Android' },
+        '.projects-grid article:nth-child(6) .project-description': { 
+            en: 'Developing native and cross-platform Android mobile applications with clean UI, smooth animations, and robust backend integrations.', 
+            id: 'Mengembangkan aplikasi mobile Android native dan cross-platform dengan UI bersih, animasi mulus, dan integrasi backend yang tangguh.' 
+        },
+        '.projects-grid article:nth-child(6) .btn-primary': { en: 'Details <i class="fa-solid fa-arrow-up-right-from-square"></i>', id: 'Detail <i class="fa-solid fa-arrow-up-right-from-square"></i>' },
+        '.projects-grid article:nth-child(6) .project-repo-link': { en: '<i class="fa-brands fa-github"></i> Reference', id: '<i class="fa-brands fa-github"></i> Referensi' },
+
+        '.projects-grid article:nth-child(7) .project-category': { en: 'Desktop Development', id: 'Pengembangan Desktop' },
+        '.projects-grid article:nth-child(7) .project-title': { en: 'Desktop App Development', id: 'Pengembangan Aplikasi Desktop' },
+        '.projects-grid article:nth-child(7) .project-description': { 
+            en: 'Creating secure, reliable, and high-performance cross-platform desktop applications for Windows, macOS, and Linux.', 
+            id: 'Membuat aplikasi desktop lintas platform yang aman, andal, dan berkinerja tinggi untuk Windows, macOS, dan Linux.' 
+        },
+        '.projects-grid article:nth-child(7) .btn-primary': { en: 'Details <i class="fa-solid fa-arrow-up-right-from-square"></i>', id: 'Detail <i class="fa-solid fa-arrow-up-right-from-square"></i>' },
+        '.projects-grid article:nth-child(7) .project-repo-link': { en: '<i class="fa-brands fa-github"></i> Reference', id: '<i class="fa-brands fa-github"></i> Referensi' },
 
         // Contact Section
         '.contact-section .section-tagline': { en: 'Contact Me', id: 'Hubungi Saya' },
