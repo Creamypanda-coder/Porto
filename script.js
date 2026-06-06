@@ -505,6 +505,8 @@ function initLanguageSwitcher() {
         '.skills-grid .skill-card:nth-child(5) .skill-category': { en: 'HTML5, CSS3, JavaScript & Frontend', id: 'HTML5, CSS3, JavaScript & Frontend Modern' },
         '.skills-grid .skill-card:nth-child(6) .skill-name': { en: 'Application Development', id: 'Pengembangan Aplikasi' },
         '.skills-grid .skill-card:nth-child(6) .skill-category': { en: 'Mobile (Android) & Desktop Apps', id: 'Aplikasi Mobile (Android) & Desktop' },
+        '.skills-grid .skill-card:nth-child(7) .skill-name': { en: 'UI/UX Design', id: 'Desain UI/UX' },
+        '.skills-grid .skill-card:nth-child(7) .skill-category': { en: 'Wireframing, Prototyping & Figma', id: 'Pembuatan Wireframe, Prototipe & Figma' },
 
         // Projects Section
         '.projects-section .section-tagline': { en: 'What Can I Do', id: 'Apa Yang Bisa Saya Lakukan' },
