@@ -36,6 +36,8 @@
     --color-js: #f7df1e;
     --color-node: #83cd29;
     --color-css: #ff4785;
+    --color-web: #a855f7;
+    --color-app: #f97316;
 }
 
 /* Light Theme Variables */
@@ -1366,6 +1368,14 @@ body.light-theme .email-link:hover {
     color: var(--color-css);
 }
 
+.web-color {
+    color: var(--color-web);
+}
+
+.app-color {
+    color: var(--color-app);
+}
+
 .skill-meta {
     display: flex;
     flex-direction: column;
@@ -1424,6 +1434,16 @@ body.light-theme .email-link:hover {
     box-shadow: 0 0 10px rgba(255, 71, 133, 0.4);
 }
 
+.fill-web {
+    background: var(--color-web);
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+.fill-app {
+    background: var(--color-app);
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+}
+
 /* Skill card custom hover box-shadow accent settings */
 .skill-card:nth-child(1) {
     --hover-glow-accent: rgba(0, 243, 255, 0.08);
@@ -1439,6 +1459,14 @@ body.light-theme .email-link:hover {
 
 .skill-card:nth-child(4) {
     --hover-glow-accent: rgba(255, 71, 133, 0.06);
+}
+
+.skill-card:nth-child(5) {
+    --hover-glow-accent: rgba(168, 85, 247, 0.06);
+}
+
+.skill-card:nth-child(6) {
+    --hover-glow-accent: rgba(249, 115, 22, 0.06);
 }
 
 /* --- 11. FEATURED PROJECTS SECTION --- */

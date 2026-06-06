@@ -501,6 +501,10 @@ function initLanguageSwitcher() {
         '.skills-grid .skill-card:nth-child(3) .skill-category': { en: 'Manual, Automated & Stability Testing', id: 'Testing Manual, Otomatis, & Uji Stabilitas Sistem' },
         '.skills-grid .skill-card:nth-child(4) .skill-name': { en: 'IT Security & Support', id: 'Keamanan & Dukungan IT' },
         '.skills-grid .skill-card:nth-child(4) .skill-category': { en: 'Firewalls, Diagnostics & Monitoring', id: 'Setup Firewall, Diagnostik, & Monitoring Performa' },
+        '.skills-grid .skill-card:nth-child(5) .skill-name': { en: 'Web Development', id: 'Pengembangan Web' },
+        '.skills-grid .skill-card:nth-child(5) .skill-category': { en: 'HTML5, CSS3, JavaScript & Frontend', id: 'HTML5, CSS3, JavaScript & Frontend Modern' },
+        '.skills-grid .skill-card:nth-child(6) .skill-name': { en: 'Application Development', id: 'Pengembangan Aplikasi' },
+        '.skills-grid .skill-card:nth-child(6) .skill-category': { en: 'Mobile (Android) & Desktop Apps', id: 'Aplikasi Mobile (Android) & Desktop' },
 
         // Projects Section
         '.projects-section .section-tagline': { en: 'What Can I Do', id: 'Apa Yang Bisa Saya Lakukan' },
