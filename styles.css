@@ -1334,6 +1334,9 @@ body.light-theme .email-link:hover {
     padding: 30px;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .skill-header {
