@@ -578,6 +578,15 @@ function initLanguageSwitcher() {
         '.projects-grid article:nth-child(7) .btn-primary': { en: 'Details <i class="fa-solid fa-arrow-up-right-from-square"></i>', id: 'Detail <i class="fa-solid fa-arrow-up-right-from-square"></i>' },
         '.projects-grid article:nth-child(7) .project-repo-link': { en: '<i class="fa-brands fa-github"></i> Reference', id: '<i class="fa-brands fa-github"></i> Referensi' },
 
+        '.projects-grid article:nth-child(8) .project-category': { en: 'Web Application', id: 'Aplikasi Web' },
+        '.projects-grid article:nth-child(8) .project-title': { en: 'Toms 3D Generator', id: 'Toms 3D Generator' },
+        '.projects-grid article:nth-child(8) .project-description': { 
+            en: 'AI-powered web application that reconstructs 2D images into interactive 3D GLB models under 30 seconds with local-first client processing.', 
+            id: 'Aplikasi web berbasis AI yang merekonstruksi gambar 2D menjadi model 3D interaktif (format GLB) kurang dari 30 detik dengan pemrosesan lokal.' 
+        },
+        '.projects-grid article:nth-child(8) .btn-primary': { en: 'Details <i class="fa-solid fa-arrow-up-right-from-square"></i>', id: 'Detail <i class="fa-solid fa-arrow-up-right-from-square"></i>' },
+        '.projects-grid article:nth-child(8) .project-repo-link': { en: '<i class="fa-brands fa-github"></i> Reference', id: '<i class="fa-brands fa-github"></i> Referensi' },
+
         // Contact Section
         '.contact-section .section-tagline': { en: 'Contact Me', id: 'Hubungi Saya' },
         '.contact-section .section-title': { en: 'Get In Touch', id: 'Mari Terhubung' },
