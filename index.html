@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=1.0.3">
+    <link rel="stylesheet" href="styles.css?v=1.0.4">
 </head>
 
 <body class="dark-theme loading">
@@ -158,13 +158,13 @@
                     <div class="console-body" id="hero-console-logs">
                         <!-- Simulated logs inserted dynamically -->
                         <div class="console-log-row"><span class="console-prompt">$</span> ping -c 3 192.168.0.1</div>
-                        <div class="console-log-row class-output">PING 192.168.0.1: 56 data bytes...</div>
-                        <div class="console-log-row class-output">64 bytes from UDM_PRO_MAX: icmp_seq=1 ttl=64 time=1.02ms</div>
-                        <div class="console-log-row class-output">64 bytes from UDM_PRO_MAX: icmp_seq=2 ttl=64 time=0.98ms</div>
+                        <div class="console-log-row console-output">PING 192.168.0.1: 56 data bytes...</div>
+                        <div class="console-log-row console-output">64 bytes from UDM_PRO_MAX: icmp_seq=1 ttl=64 time=1.02ms</div>
+                        <div class="console-log-row console-output">64 bytes from UDM_PRO_MAX: icmp_seq=2 ttl=64 time=0.98ms</div>
                         <div class="console-log-row"><span class="console-prompt">$</span> show system status</div>
-                        <div class="console-log-row class-output">Uptime: 265 days 4 hours</div>
-                        <div class="console-log-row class-output">VLANs Active: 17 subnets nominal</div>
-                        <div class="console-log-row class-output">Security Gateway: Integrity verified</div>
+                        <div class="console-log-row console-output">Uptime: 265 days 4 hours</div>
+                        <div class="console-log-row console-output">VLANs Active: 17 subnets nominal</div>
+                        <div class="console-log-row console-output">Security Gateway: Integrity verified</div>
                     </div>
                     
                     <div class="avatar-scanner-frame" id="avatar-card">
@@ -905,7 +905,7 @@
         onload="if(typeof submitted !== 'undefined' && submitted) { handleFormSubmitSuccess(); }"></iframe>
 
     <!-- Custom JavaScript -->
-    <script src="script.js?v=1.0.2"></script>
+    <script src="script.js?v=1.0.3"></script>
 </body>
 
 </html>

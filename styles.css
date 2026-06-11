@@ -15,6 +15,7 @@
     --bg-secondary: rgba(10, 16, 30, 0.75);
     --bg-tertiary: #0b0f19;
     --bg-glow: rgba(15, 23, 42, 0.6);
+    --navbar-bg: rgba(6, 9, 19, 0.85);
     
     /* Accents (Representing System Statuses) */
     --accent-cyan: #00f0ff;      /* Network/Data Path */
@@ -44,6 +45,7 @@ body.light-theme {
     --bg-secondary: rgba(255, 255, 255, 0.85);
     --bg-tertiary: #ffffff;
     --bg-glow: rgba(243, 244, 246, 0.9);
+    --navbar-bg: rgba(240, 242, 245, 0.85);
     
     --accent-cyan: #0088cc;
     --accent-green: #00aa3c;
@@ -330,7 +332,7 @@ button {
     left: 0;
     width: 100%;
     height: 70px;
-    background: rgba(6, 9, 19, 0.85);
+    background: var(--navbar-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
@@ -626,7 +628,7 @@ section {
 .console-title {
     font-family: var(--font-mono);
     font-size: 11px;
-    color: var(--text-secondary);
+    color: #9ca3af !important;
 }
 
 .console-dots {
@@ -659,11 +661,11 @@ section {
 }
 
 .console-prompt {
-    color: var(--accent-green);
+    color: #39ff14 !important;
 }
 
 .console-output {
-    color: var(--text-secondary);
+    color: #a3a3a3 !important;
 }
 
 .avatar-scanner-frame {
@@ -768,7 +770,8 @@ section {
 
 .layer-diagram-panel {
     border: 1px solid var(--border-color);
-    background: #040711;
+    background: #040711 !important; /* Keep dark blueprint in both modes */
+    color: #e5e7eb !important;
     border-radius: 6px;
     padding: 24px;
     display: flex;
@@ -796,29 +799,29 @@ section {
 .vlan-port {
     height: 28px;
     background: #111827;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-mono);
     font-size: 9px;
-    color: var(--text-muted);
+    color: #6b7280;
     transition: var(--transition-quick);
     position: relative;
     cursor: help;
 }
 
 .vlan-port.active {
-    border-color: var(--accent-green);
-    color: var(--accent-green);
-    background: rgba(57, 255, 20, 0.05);
+    border-color: #39ff14 !important;
+    color: #39ff14 !important;
+    background: rgba(57, 255, 20, 0.05) !important;
 }
 
 .vlan-port.trunk {
-    border-color: var(--accent-cyan);
-    color: var(--accent-cyan);
-    background: rgba(0, 240, 255, 0.05);
+    border-color: #00f0ff !important;
+    color: #00f0ff !important;
+    background: rgba(0, 240, 255, 0.05) !important;
 }
 
 .vlan-port:hover .vlan-tooltip {
@@ -837,7 +840,7 @@ section {
     border-radius: 4px;
     font-family: var(--font-mono);
     font-size: 10px;
-    color: var(--text-primary);
+    color: #f3f4f6;
     white-space: nowrap;
     z-index: 10;
     opacity: 0;
@@ -862,10 +865,11 @@ section {
 .dev-sandbox-log {
     font-family: var(--font-mono);
     font-size: 12px;
-    background: #080b15;
+    background: #080b15 !important;
+    color: #e5e7eb !important;
     padding: 16px;
     border-radius: 4px;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -875,7 +879,7 @@ section {
 .code-keyword { color: #f472b6; }
 .code-method { color: #60a5fa; }
 .code-string { color: #34d399; }
-.code-comment { color: var(--text-muted); }
+.code-comment { color: #6b7280; }
 
 /* QA Protocol diagnostic rows */
 .qa-checklist {
@@ -889,8 +893,8 @@ section {
     align-items: center;
     justify-content: space-between;
     padding: 10px 14px;
-    background: #0a0d1a;
-    border: 1px solid var(--border-color);
+    background: #0a0d1a !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
     border-radius: 4px;
 }
 
@@ -899,7 +903,7 @@ section {
     align-items: center;
     gap: 12px;
     font-size: 13px;
-    color: var(--text-primary);
+    color: #f3f4f6 !important;
 }
 
 .qa-check-label i {
@@ -911,14 +915,14 @@ section {
     font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 700;
-    color: var(--accent-green);
+    color: var(--accent-green) !important;
     text-transform: uppercase;
 }
 
 /* --- 8. TECHNOLOGY STACK MAP --- */
 .tech-map-wrapper {
-    background: #040711;
-    border: 1px solid var(--border-color);
+    background: #040711 !important; /* Fixed dark background */
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 8px;
     padding: 40px 24px;
     overflow-x: auto;
@@ -945,26 +949,27 @@ section {
 .tech-map-column-title {
     font-family: var(--font-mono);
     font-size: 12px;
-    color: var(--text-muted);
+    color: #6b7280 !important; /* Fixed gray title */
     text-transform: uppercase;
     text-align: center;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding-bottom: 8px;
     margin-bottom: 8px;
 }
 
 .tech-map-node {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
+    background: #0c1020 !important; /* Fixed dark node background */
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
     border-radius: 6px;
     padding: 16px;
     text-align: center;
     transition: var(--transition-smooth);
     cursor: default;
+    color: #f3f4f6 !important; /* Fixed light node text */
 }
 
 .tech-map-node:hover {
-    border-color: var(--accent-cyan);
+    border-color: var(--accent-cyan) !important;
     box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
     transform: translateY(-2px);
 }
@@ -972,23 +977,24 @@ section {
 .tech-map-node i {
     font-size: 20px;
     margin-bottom: 8px;
-    color: var(--text-secondary);
+    color: #9ca3af !important;
     transition: var(--transition-quick);
 }
 
 .tech-map-node:hover i {
-    color: var(--accent-cyan);
+    color: var(--accent-cyan) !important;
 }
 
 .tech-map-node h4 {
     font-size: 13px;
     margin-bottom: 4px;
+    color: #f3f4f6 !important;
 }
 
 .tech-map-node p {
     font-family: var(--font-mono);
     font-size: 10px;
-    color: var(--text-muted);
+    color: #9ca3af !important;
 }
 
 /* Node flow line overlay */
@@ -1294,12 +1300,13 @@ body.light-theme .contact-map {
 
 /* Form Styling - Terminal Style */
 .contact-form-wrapper {
-    background: #040711;
-    border: 1px solid var(--border-color);
+    background: #040711 !important; /* Fixed dark background */
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 6px;
     padding: 32px;
     box-shadow: var(--card-shadow);
     position: relative;
+    color: #e5e7eb !important;
 }
 
 .contact-form-wrapper::before {
@@ -1334,16 +1341,16 @@ body.light-theme .contact-map {
 .contact-form label {
     font-family: var(--font-mono);
     font-size: 11px;
-    color: var(--text-muted);
+    color: #9ca3af !important; /* Fixed light label color */
     text-transform: uppercase;
 }
 
 .form-input {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 4px;
     padding: 10px 14px;
-    color: var(--text-primary);
+    color: #f3f4f6 !important; /* Fixed light input text */
     font-family: var(--font-mono);
     font-size: 13px;
     transition: var(--transition-quick);
@@ -1351,8 +1358,8 @@ body.light-theme .contact-map {
 
 .form-input:focus {
     outline: none;
-    border-color: var(--accent-cyan);
-    background: rgba(0, 240, 255, 0.02);
+    border-color: var(--accent-cyan) !important;
+    background: rgba(0, 240, 255, 0.02) !important;
 }
 
 .form-textarea {
