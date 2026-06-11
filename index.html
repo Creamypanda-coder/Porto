@@ -4,30 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>Muhamad Tomi Tobuhita | Technology Ecosystem Architect</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
+    
     <!-- SEO Meta Tags -->
     <meta name="description"
-        content="Portfolio & CV of Muhamad Tomi Tobuhita, IT Engineer, Network Specialist, and QA Services Professional specializing in high-performance network engineering and robust systems infrastructure.">
+        content="Portfolio of Muhamad Tomi Tobuhita, Technology Ecosystem Architect. Expert in systems infrastructure, network engineering (UniFi/MikroTik), cybersecurity, QA engineering, backend & frontend development.">
     <meta name="keywords"
-        content="Muhamad Tomi Tobuhita, IT Engineer, Network Specialist, QA Services, Network Management, Troubleshooting, Systems Infrastructure, Quality Assurance">
+        content="Muhamad Tomi Tobuhita, Technology Architect, IT Engineer, Network Specialist, QA Services, UniFi, MikroTik, Systems Administrator, Cybersecurity, Automation">
     <meta name="author" content="Muhamad Tomi Tobuhita">
 
-    <!-- Google Fonts (Outfit for Headers, Inter for Body) -->
+    <!-- Google Fonts (Outfit, Inter, and JetBrains Mono for technical look) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Lottie Web Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=1.0.2">
+    <link rel="stylesheet" href="styles.css?v=1.0.3">
 </head>
 
 <body class="dark-theme loading">
@@ -42,26 +38,34 @@
         })();
     </script>
 
-    <!-- PRELOADER -->
+    <!-- SYSTEM INIT PRELOADER -->
     <div id="preloader" class="preloader">
         <div class="loader-wrapper">
+            <span class="loader-letter">S</span>
+            <span class="loader-letter">Y</span>
+            <span class="loader-letter">S</span>
+            <span class="loader-letter">_</span>
             <span class="loader-letter">I</span>
-            <span class="loader-letter">n</span>
-            <span class="loader-letter">i</span>
-            <span class="loader-letter">t</span>
-            <span class="loader-letter">i</span>
-            <span class="loader-letter">a</span>
-            <span class="loader-letter">l</span>
-            <span class="loader-letter">i</span>
-            <span class="loader-letter">z</span>
-            <span class="loader-letter">i</span>
-            <span class="loader-letter">n</span>
-            <span class="loader-letter">g</span>
-
-            <div class="loader"></div>
+            <span class="loader-letter">N</span>
+            <span class="loader-letter">I</span>
+            <span class="loader-letter">T</span>
+            <span class="loader-letter">I</span>
+            <span class="loader-letter">A</span>
+            <span class="loader-letter">L</span>
+            <span class="loader-letter">I</span>
+            <span class="loader-letter">Z</span>
+            <span class="loader-letter">I</span>
+            <span class="loader-letter">N</span>
+            <span class="loader-letter">G</span>
+            
+            <div class="loader-bar-bg">
+                <div id="preloader-bar" class="loader-bar-fill"></div>
+            </div>
+            <div class="loading-percent" style="font-family: var(--font-mono); font-size: 14px;">00%</div>
         </div>
     </div>
-    <!-- Blurred Aurora background blobs for premium depth -->
+
+    <!-- Aurora background blobs for premium depth -->
     <div class="aurora-bg" aria-hidden="true">
         <div class="blob blob-purple"></div>
         <div class="blob blob-blue"></div>
@@ -71,25 +75,28 @@
     <!-- Navigation Header -->
     <header class="navbar">
         <div class="navbar-container">
-            <a href="#hero" class="nav-logo" id="nav-logo">Toms domain<span>.</span></a>
+            <a href="#hero" class="nav-logo" id="nav-logo">
+                <i class="fa-solid fa-square-terminal"></i> TOMS_DOMAIN <span>// ARCHITECT</span>
+            </a>
 
             <nav class="nav-links-container" aria-label="Main Navigation">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="#hero" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#infrastructure" class="nav-link">Infrastructure</a></li>
+                    <li><a href="#development" class="nav-link">Development</a></li>
+                    <li><a href="#qa" class="nav-link">Quality Assurance</a></li>
+                    <li><a href="#tech-map" class="nav-link">Topology Map</a></li>
+                    <li><a href="#projects" class="nav-link">Components</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
 
             <div class="nav-actions">
-                <button id="lang-toggle" class="theme-toggle-btn lang-toggle-btn" aria-label="Toggle Language"
-                    title="Toggle ID/EN" style="font-weight: 700; font-size: 14px;">
+                <button id="lang-toggle" class="theme-toggle-btn lang-toggle-btn" aria-label="Toggle Language" title="Toggle ID/EN">
                     EN
                 </button>
-                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme"
-                    title="Toggle dark/light mode">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle dark/light mode">
                     <i class="fa-solid fa-moon"></i>
                 </button>
                 <button class="nav-hamburger" aria-label="Toggle Menu" aria-expanded="false" id="nav-hamburger">
@@ -101,310 +108,438 @@
         </div>
     </header>
 
-    <!-- Main Container -->
+    <!-- Main Content Grid -->
     <main class="main-content">
 
-        <!-- HERO SECTION -->
+        <!-- 1. OVERVIEW / HERO SECTION -->
         <section class="hero-section" id="hero">
-            <div class="hero-container">
+            <div class="hero-grid">
                 <div class="hero-info">
-                    <span class="badge">IT Engineering, Network, QA Services</span>
-                    <h1 class="hero-title">Muhamad <span class="gradient-text">Tomi Tobuhita</span></h1>
-                    <h2 class="hero-subtitle"><span class="typed-text">IT Engineer & Network Specialist</span><span
-                            class="cursor">&nbsp;</span></h2>
+                    <div class="hero-meta-panel">
+                        <div class="telemetry-badge">
+                            <span class="status-dot active"></span> SYS_STATUS: NOMINAL
+                        </div>
+                        <div class="telemetry-badge">
+                            <i class="fa-solid fa-location-dot"></i> LOC: AMBON_ID
+                        </div>
+                    </div>
+                    <h1 class="hero-title">Muhamad Tomi Tobuhita</h1>
+                    <h2 class="hero-subtitle">
+                        <span class="typed-text">Technology Ecosystem Architect</span><span class="cursor">&nbsp;</span>
+                    </h2>
                     <p class="hero-description">
-                        I build reliable, scalable, and secure IT infrastructure solutions, combining strong network
-                        engineering,
-                        quality assurance services, and modern technology practices to ensure high-performance, stable,
-                        and efficient systems.
+                        This engineer designs, builds, secures, tests, deploys, and maintains complete technology systems. Overbridging networking architecture, virtualization infrastructure, multi-platform logic systems, and diagnostic QA verification pipelines.
                     </p>
 
                     <div class="hero-ctas">
-                        <a href="#projects" class="btn btn-primary">View My Work <i
-                                class="fa-solid fa-arrow-right"></i></a>
-                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                        <a href="#tech-map" class="btn btn-primary">Ecosystem Map <i class="fa-solid fa-network-wired"></i></a>
+                        <a href="#contact" class="btn btn-secondary">Initialize Link</a>
                     </div>
 
                     <div class="social-links">
-                        <a href="https://github.com/Creamypanda-coder" target="_blank" rel="noopener noreferrer"
-                            aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/muhamadtomitobuhita" target="_blank"
-                            rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://instagram.com/kreamypanda" target="_blank" rel="noopener noreferrer"
-                            aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i
-                                class="fa-brands fa-twitter"></i></a>
-                        <a href="https://wa.me/6282239638386?text=Halo%20Tomi%2C%20perkenalkan%20nama%20saya%20" target="_blank" rel="noopener noreferrer"
-                            aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://github.com/Creamypanda-coder" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/muhamadtomitobuhita" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/kreamypanda" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://wa.me/6282239638386?text=Halo%20Tomi%2C%20perkenalkan%20nama%20saya%20" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 </div>
 
-                <div class="hero-visual">
-                    <div class="avatar-card-wrapper">
-                        <!-- Planetary/Orbital Ring animations in the background -->
-                        <div class="orbital-ring ring-1">
-                            <a href="https://en.wikipedia.org/wiki/Linux" target="_blank" rel="noopener noreferrer" class="ring-icon icon-linux pos-top" title="Linux"><i class="fa-brands fa-linux"></i></a>
-                            <a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank" rel="noopener noreferrer" class="ring-icon icon-js pos-right" title="JavaScript"><i class="fa-brands fa-js"></i></a>
-                            <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank" rel="noopener noreferrer" class="ring-icon icon-python pos-bottom" title="Python"><i class="fa-brands fa-python"></i></a>
-                            <a href="https://en.wikipedia.org/wiki/Microsoft_Windows" target="_blank" rel="noopener noreferrer" class="ring-icon icon-windows pos-left" title="Windows"><i class="fa-brands fa-windows"></i></a>
-                        </div>
-                        <div class="orbital-ring ring-2">
-                            <a href="https://en.wikipedia.org/wiki/Docker_(software)" target="_blank" rel="noopener noreferrer" class="ring-icon icon-docker pos-top" title="Docker"><i class="fa-brands fa-docker"></i></a>
-                            <a href="https://en.wikipedia.org/wiki/Git" target="_blank" rel="noopener noreferrer" class="ring-icon icon-git pos-right" title="Git"><i class="fa-brands fa-git-alt"></i></a>
-                            <a href="https://en.wikipedia.org/wiki/Network_engineering" target="_blank" rel="noopener noreferrer" class="ring-icon icon-network pos-bottom" title="Network Engineering / Cisco"><i class="fa-solid fa-network-wired"></i></a>
-                            <a href="https://en.wikipedia.org/wiki/Command-line_interface" target="_blank" rel="noopener noreferrer" class="ring-icon icon-terminal pos-left" title="Terminal / Bash"><i class="fa-solid fa-terminal"></i></a>
-                        </div>
-                        <div class="orbital-ring ring-3">
-                            <a href="https://en.wikipedia.org/wiki/HTML5" target="_blank" rel="noopener noreferrer" class="ring-icon icon-html pos-top" title="HTML5"><i class="fa-brands fa-html5"></i></a>
-                            <a href="https://en.wikipedia.org/wiki/CSS" target="_blank" rel="noopener noreferrer" class="ring-icon icon-css pos-right" title="CSS3"><i class="fa-brands fa-css3-alt"></i></a>
-                            <a href="https://en.wikipedia.org/wiki/Routing" target="_blank" rel="noopener noreferrer" class="ring-icon icon-route pos-bottom" title="Routing / Switching"><i class="fa-solid fa-route"></i></a>
-                            <a href="https://en.wikipedia.org/wiki/Software_testing" target="_blank" rel="noopener noreferrer" class="ring-icon icon-bug pos-left" title="Quality Assurance / Testing"><i class="fa-solid fa-bug"></i></a>
-                        </div>
-                        <div class="pulse-ring"></div>
-
-                        <!-- Main 3D Tilt Glassmorphic Card -->
-                        <div class="avatar-tilt-card" id="avatar-card">
-                            <div class="avatar-image-container">
-                                <img src="assets/cyberpunk_avatar.jpg" alt="Muhamad Tomi Tobuhita" class="avatar-img">
-                            </div>
-
-                            <!-- Popup Text -->
-                            <div class="avatar-popup" id="avatar-popup">Hy!</div>
-
-                            <!-- Floating Badges -->
-                            <div class="floating-badge badge-experience">
-                                <span class="badge-number">3+</span>
-                                <span class="badge-text">Years<br>Experience</span>
-                            </div>
-
-                            <div class="floating-badge badge-code">
-                                <i class="fa-solid fa-code"></i>
-                            </div>
+                <!-- Technical Hologram Panel on Hero -->
+                <div class="hero-console">
+                    <div class="console-header">
+                        <span class="console-title"><i class="fa-solid fa-terminal"></i> telemetry_diagnostic.log</span>
+                        <div class="console-dots">
+                            <span class="console-dot"></span>
+                            <span class="console-dot"></span>
+                            <span class="console-dot"></span>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Scroll Down Indicator -->
-            <a href="#about" class="scroll-down-indicator" aria-label="Scroll down to About section">
-                <span class="mouse-icon">
-                    <span class="wheel"></span>
-                </span>
-                <i class="fa-solid fa-chevron-down chevron"></i>
-            </a>
-        </section>
-
-        <!-- ABOUT ME SECTION -->
-        <section class="about-section" id="about">
-            <span class="section-tagline scroll-reveal reveal-slide-up">About Me</span>
-            <h2 class="section-title scroll-reveal reveal-slide-up delay-100">About Me</h2>
-
-            <div class="about-grid">
-                <div class="about-details scroll-reveal reveal-slide-left">
-                    <p class="paragraph">
-                        I am an <strong>IT Engineer</strong>, <strong>Network Specialist</strong>, and <strong>QA
-                            Services Professional</strong> with a deep passion for building reliable, secure, and
-                        high-performance IT infrastructure.
-                        Armed with experience in network management,
-                        system maintenance, troubleshooting, and quality assurance services,
-                        I always strive to deliver efficient technology solutions that ensure stability, scalability,
-                        and operational excellence.
-                    </p>
-                    <p class="paragraph">
-                        My primary focus lies in managing and optimizing IT infrastructure, network systems, and QA
-                        services to ensure secure, stable, and efficient operations.
-                        I specialize in network troubleshooting, system monitoring, infrastructure maintenance,
-                        and technical support while implementing modern IT solutions that improve performance,
-                        reliability, and operational continuity.
-                    </p>
-
-                    <button id="download-cv" class="btn btn-primary btn-cv" aria-label="Download CV as PDF">
-                        Download CV <i class="fa-solid fa-download"></i>
-                    </button>
-                </div>
-
-                <div class="about-info-card scroll-reveal reveal-slide-right">
-                    <div class="glass-card info-table-card">
-                        <div class="info-row">
-                            <span class="info-label"><i class="fa-regular fa-user"></i> Name</span>
-                            <span class="info-value">Muhamad Tomi Tobuhita</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="info-label"><i class="fa-regular fa-envelope"></i> Email</span>
-                            <a href="mailto:muhamadtomytobuhita@gmail.com"
-                                class="info-value email-link">muhamadtomytobuhita@gmail.com</a>
-                        </div>
-                        <div class="info-row">
-                            <span class="info-label"><i class="fa-solid fa-map-pin"></i> Location</span>
-                            <span class="info-value">Maluku Ambon, Indonesia</span>
-                        </div>
-                        <div class="info-row">
-                            <span class="info-label"><i class="fa-regular fa-calendar-check"></i> Availability</span>
-                            <span class="info-value availability-status">
-                                <span class="pulse-dot"></span> Available for work
-                            </span>
+                    <div class="console-body" id="hero-console-logs">
+                        <!-- Simulated logs inserted dynamically -->
+                        <div class="console-log-row"><span class="console-prompt">$</span> ping -c 3 192.168.0.1</div>
+                        <div class="console-log-row class-output">PING 192.168.0.1: 56 data bytes...</div>
+                        <div class="console-log-row class-output">64 bytes from UDM_PRO_MAX: icmp_seq=1 ttl=64 time=1.02ms</div>
+                        <div class="console-log-row class-output">64 bytes from UDM_PRO_MAX: icmp_seq=2 ttl=64 time=0.98ms</div>
+                        <div class="console-log-row"><span class="console-prompt">$</span> show system status</div>
+                        <div class="console-log-row class-output">Uptime: 265 days 4 hours</div>
+                        <div class="console-log-row class-output">VLANs Active: 17 subnets nominal</div>
+                        <div class="console-log-row class-output">Security Gateway: Integrity verified</div>
+                    </div>
+                    
+                    <div class="avatar-scanner-frame" id="avatar-card">
+                        <div class="avatar-img-container">
+                            <img src="assets/professional_avatar.png" alt="Muhamad Tomi Tobuhita" class="avatar-img">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SKILLS SECTION -->
-        <section class="skills-section" id="skills">
-            <span class="section-tagline scroll-reveal reveal-slide-up">My Skills</span>
-            <h2 class="section-title scroll-reveal reveal-slide-up delay-100">Technologies I Work With</h2>
-
-            <div class="skills-grid">
-                <!-- Skill 1: Network Engineering -->
-                <div class="glass-card skill-card hover-glow scroll-reveal reveal-slide-up delay-100"
-                    data-color="rgba(0, 243, 255, 0.4)">
-                    <div class="skill-header">
-                        <i class="fa-solid fa-network-wired react-color"></i>
-                        <div class="skill-meta">
-                            <span class="skill-name">Network Engineering</span>
-                            <span class="skill-category">Routing, Switching & Protocols</span>
-                        </div>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="progress-bar-container" aria-label="Network Engineering skill: 90%"
-                            role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill fill-react" style="width: 90%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill 2: Systems & Server Administration -->
-                <div class="glass-card skill-card hover-glow scroll-reveal reveal-slide-up delay-200"
-                    data-color="rgba(247, 223, 30, 0.4)">
-                    <div class="skill-header">
-                        <i class="fa-solid fa-server js-color"></i>
-                        <div class="skill-meta">
-                            <span class="skill-name">Systems & Servers</span>
-                            <span class="skill-category">Linux, Windows & VM Management</span>
-                        </div>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="progress-bar-container" aria-label="Systems & Servers skill: 85%" role="progressbar"
-                            aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill fill-js" style="width: 85%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill 3: Quality Assurance (QA) -->
-                <div class="glass-card skill-card hover-glow scroll-reveal reveal-slide-up delay-300"
-                    data-color="rgba(131, 205, 41, 0.4)">
-                    <div class="skill-header">
-                        <i class="fa-solid fa-circle-check node-color"></i>
-                        <div class="skill-meta">
-                            <span class="skill-name">Quality Assurance (QA)</span>
-                            <span class="skill-category">Manual, Automated & Stability Testing</span>
-                        </div>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="progress-bar-container" aria-label="Quality Assurance skill: 88%" role="progressbar"
-                            aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill fill-node" style="width: 88%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill 4: Troubleshooting & Security -->
-                <div class="glass-card skill-card hover-glow scroll-reveal reveal-slide-up delay-400"
-                    data-color="rgba(227, 79, 38, 0.4)">
-                    <div class="skill-header">
-                        <i class="fa-solid fa-shield-halved css-color"></i>
-                        <div class="skill-meta">
-                            <span class="skill-name">IT Security & Support</span>
-                            <span class="skill-category">Firewalls, Diagnostics & Monitoring</span>
-                        </div>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="progress-bar-container" aria-label="IT Security & Support skill: 92%"
-                            role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill fill-css" style="width: 92%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill 5: Web Development -->
-                <div class="glass-card skill-card hover-glow scroll-reveal reveal-slide-up delay-100"
-                    data-color="rgba(168, 85, 247, 0.4)">
-                    <div class="skill-header">
-                        <i class="fa-solid fa-laptop-code web-color"></i>
-                        <div class="skill-meta">
-                            <span class="skill-name">Web Development</span>
-                            <span class="skill-category">HTML5, CSS3, JavaScript & Frontend</span>
-                        </div>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="progress-bar-container" aria-label="Web Development skill: 87%"
-                            role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill fill-web" style="width: 87%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill 6: Application Development -->
-                <div class="glass-card skill-card hover-glow scroll-reveal reveal-slide-up delay-200"
-                    data-color="rgba(249, 115, 22, 0.4)">
-                    <div class="skill-header">
-                        <i class="fa-solid fa-mobile-screen-button app-color"></i>
-                        <div class="skill-meta">
-                            <span class="skill-name">Application Development</span>
-                            <span class="skill-category">Mobile (Android) & Desktop Apps</span>
-                        </div>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="progress-bar-container" aria-label="Application Development skill: 82%"
-                            role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill fill-app" style="width: 82%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill 7: UI/UX Design -->
-                <div class="glass-card skill-card hover-glow scroll-reveal reveal-slide-up delay-300"
-                    data-color="rgba(236, 72, 153, 0.4)">
-                    <div class="skill-header">
-                        <i class="fa-solid fa-bezier-curve uiux-color"></i>
-                        <div class="skill-meta">
-                            <span class="skill-name">UI/UX Design</span>
-                            <span class="skill-category">Wireframing, Prototyping & Figma</span>
-                        </div>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="progress-bar-container" aria-label="UI/UX Design skill: 85%"
-                            role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar-fill fill-uiux" style="width: 85%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS SECTION -->
-        <section class="projects-section" id="projects">
-            <div class="projects-header scroll-reveal reveal-slide-up">
+        <!-- 2. INFRASTRUCTURE LAYER SECTION -->
+        <section class="infra-section" id="infrastructure">
+            <div class="section-header-tech">
                 <div>
-                    <span class="section-tagline">What Can I Do</span>
-                    <h2 class="section-title">Services & Capabilities</h2>
+                    <span class="section-tagline">Layer 01 // System Stability</span>
+                    <h2 class="section-title">Infrastructure & Network</h2>
                 </div>
-                <a href="#projects" class="btn btn-secondary">View All Projects</a>
+                <div class="section-meta-info">NETWORK_ENGINEERING // SYSTEM_ADMINISTRATION</div>
+            </div>
+
+            <div class="layer-grid">
+                <div class="layer-spec-panel">
+                    <div class="layer-spec-header">
+                        <span class="layer-spec-title">Hardware & Topology Deployment</span>
+                        <span class="telemetry-badge">active</span>
+                    </div>
+                    <div class="spec-list">
+                        <div class="spec-item">
+                            <span class="spec-label">GATEWAY / ROUTER INTEGRATION</span>
+                            <span class="spec-value">UDM Pro Max (UniFi Gateway) & MikroTik (RB1100x4) network environments.</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">SWITCHING INFRASTRUCTURE</span>
+                            <span class="spec-value">USW Pro Max 24 PoE principal uplink setup via 10 GbE SFP+ optical fiber trunks.</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">WAN / MPLS ROUTING CONFIGURATION</span>
+                            <span class="spec-value">Cisco CE WAN integration via static routing table entries mapped in complex gateways.</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">TELECOMMUNICATIONS & CABLING</span>
+                            <span class="spec-value">High-speed Fiber Optic (FTTH) splicing, IP CCTV surveillance matrix, and field wireless APs (U7 Pro XG, Altai).</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive VLAN Switch Diagram -->
+                <div class="layer-diagram-panel">
+                    <div class="vlan-switch-board">
+                        <h4 style="font-family: var(--font-mono); font-size: 12px; margin-bottom: 12px; text-transform: uppercase; color: var(--text-primary);">
+                            <i class="fa-solid fa-server"></i> Switchboard VLAN Telemetry (USW-PRO-MAX-24)
+                        </h4>
+                        
+                        <div class="vlan-port-grid">
+                            <!-- Port 1 to 24 -->
+                            <div class="vlan-port trunk active">01
+                                <span class="vlan-tooltip">Port 01: Core Switch Trunk (VLAN 200, Tagged: All)</span>
+                            </div>
+                            <div class="vlan-port active">02
+                                <span class="vlan-tooltip">Port 02: U7 Pro XG Access Point (VLAN 1)</span>
+                            </div>
+                            <div class="vlan-port active">03
+                                <span class="vlan-tooltip">Port 03: MPLS Uplink Gateway (VLAN 2)</span>
+                            </div>
+                            <div class="vlan-port">04
+                                <span class="vlan-tooltip">Port 04: General Office (VLAN 1)</span>
+                            </div>
+                            <div class="vlan-port active">05
+                                <span class="vlan-tooltip">Port 05: Primary Host Server (VLAN 9)</span>
+                            </div>
+                            <div class="vlan-port">06
+                                <span class="vlan-tooltip">Port 06: General Office (VLAN 1)</span>
+                            </div>
+                            <div class="vlan-port active">07
+                                <span class="vlan-tooltip">Port 07: Security IP CCTV (VLAN 13)</span>
+                            </div>
+                            <div class="vlan-port active">08
+                                <span class="vlan-tooltip">Port 08: Auto Gate Controller (VLAN 13)</span>
+                            </div>
+                            <div class="vlan-port">09
+                                <span class="vlan-tooltip">Port 09: Standby Pool (VLAN 1)</span>
+                            </div>
+                            <div class="vlan-port active">10
+                                <span class="vlan-tooltip">Port 10: General Manager Terminal (VLAN 10)</span>
+                            </div>
+                            <div class="vlan-port active">11
+                                <span class="vlan-tooltip">Port 11: Finance Workstations (VLAN 14)</span>
+                            </div>
+                            <div class="vlan-port">12
+                                <span class="vlan-tooltip">Port 12: Standby Pool (VLAN 1)</span>
+                            </div>
+                            <div class="vlan-port active">13
+                                <span class="vlan-tooltip">Port 13: HR & General Admin (VLAN 16)</span>
+                            </div>
+                            <div class="vlan-port active">14
+                                <span class="vlan-tooltip">Port 14: Biometric Attendance (VLAN 19)</span>
+                            </div>
+                            <div class="vlan-port active">15
+                                <span class="vlan-tooltip">Port 15: Field Access Point (VLAN 20)</span>
+                            </div>
+                            <div class="vlan-port active">16
+                                <span class="vlan-tooltip">Port 16: Video Conference Rig (VLAN 26)</span>
+                            </div>
+                            <div class="vlan-port">17
+                                <span class="vlan-tooltip">Port 17: Third-Party EPASS (VLAN 17)</span>
+                            </div>
+                            <div class="vlan-port active">18
+                                <span class="vlan-tooltip">Port 18: Secondary Server (VLAN 100)</span>
+                            </div>
+                            <div class="vlan-port">19
+                                <span class="vlan-tooltip">Port 19: Backup Pool (VLAN 1)</span>
+                            </div>
+                            <div class="vlan-port">20
+                                <span class="vlan-tooltip">Port 20: Backup Pool (VLAN 1)</span>
+                            </div>
+                            <div class="vlan-port">21
+                                <span class="vlan-tooltip">Port 21: Backup Pool (VLAN 1)</span>
+                            </div>
+                            <div class="vlan-port">22
+                                <span class="vlan-tooltip">Port 22: Backup Pool (VLAN 1)</span>
+                            </div>
+                            <div class="vlan-port">23
+                                <span class="vlan-tooltip">Port 23: Backup Pool (VLAN 1)</span>
+                            </div>
+                            <div class="vlan-port">24
+                                <span class="vlan-tooltip">Port 24: Backup Pool (VLAN 1)</span>
+                            </div>
+                        </div>
+                        
+                        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); line-height: 1.6; margin-top: 8px;">
+                            <span class="status-dot" style="background-color: var(--accent-cyan); box-shadow: 0 0 6px var(--accent-cyan);"></span> Trunk / Port VLAN 200 &nbsp;&nbsp;&nbsp;
+                            <span class="status-dot" style="background-color: var(--accent-green); box-shadow: 0 0 6px var(--accent-green);"></span> Active Systems Layer Link
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. DEVELOPMENT LAYER SECTION -->
+        <section class="dev-section" id="development">
+            <div class="section-header-tech">
+                <div>
+                    <span class="section-tagline">Layer 02 // Logic & Services</span>
+                    <h2 class="section-title">Software Development</h2>
+                </div>
+                <div class="section-meta-info">BACKEND_DEVELOPMENT // AUTOMATION // CLIENTS</div>
+            </div>
+
+            <div class="layer-grid">
+                <!-- Sandbox Development View -->
+                <div class="layer-diagram-panel">
+                    <div class="dev-sandbox-log">
+                        <div class="console-log-row"><span class="code-comment">// Smart Controller Automation Script</span></div>
+                        <div class="console-log-row"><span class="code-keyword">import</span> { GateMotor, SafetySensor } <span class="code-keyword">from</span> <span class="code-string">"toms-automation-sdk"</span>;</div>
+                        <div class="console-log-row"><span class="code-keyword">const</span> gate = <span class="code-keyword">new</span> <span class="code-method">GateMotor</span>({ port: <span class="code-string">"/dev/ttyUSB0"</span> });</div>
+                        <div class="console-log-row">gate.<span class="code-method">onSensorTrigger</span>((sensor) => {</div>
+                        <div class="console-log-row">&nbsp;&nbsp;<span class="code-keyword">if</span> (sensor.type === <span class="code-string">'INFRARED'</span>) {</div>
+                        <div class="console-log-row">&nbsp;&nbsp;&nbsp;&nbsp;gate.<span class="code-method">halt</span>(); <span class="code-comment">// Emergency safety stop</span></div>
+                        <div class="console-log-row">&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-method">log</span>(<span class="code-string">"STATUS: Safety trigger active"</span>);</div>
+                        <div class="console-log-row">&nbsp;&nbsp;}</div>
+                        <div class="console-log-row">});</div>
+                    </div>
+                </div>
+
+                <div class="layer-spec-panel">
+                    <div class="layer-spec-header">
+                        <span class="layer-spec-title">Logic Stack & Automation Systems</span>
+                        <span class="telemetry-badge">active</span>
+                    </div>
+                    <div class="spec-list">
+                        <div class="spec-item">
+                            <span class="spec-label">SYSTEM AUTOMATION & HARDWARE CONTROLLERS</span>
+                            <span class="spec-value">Integration of smart drive gate controllers, infrared safety telemetry, and automated access relays.</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">BACKEND APIS & SERVICES</span>
+                            <span class="spec-value">Node.js environments, Python processing engines, and C#/.NET system utilities for platform databases.</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">FRONTEND SYSTEMS</span>
+                            <span class="spec-value">Modern Next.js web applications, fast interactive client layouts utilizing HTML5, CSS3, and ES6 JavaScript.</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">CROSS-PLATFORM LOGIC</span>
+                            <span class="spec-value">Native Android applications (Kotlin/Java) and cross-platform desktop shells (Electron/Tauri) for system diagnostics.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. QUALITY ASSURANCE LAYER SECTION -->
+        <section class="qa-section" id="qa">
+            <div class="section-header-tech">
+                <div>
+                    <span class="section-tagline">Layer 03 // Integrity & Verification</span>
+                    <h2 class="section-title">Quality Assurance</h2>
+                </div>
+                <div class="section-meta-info">TESTING_PROTOCOLS // TELEMETRY_DIAGNOSTICS</div>
+            </div>
+
+            <div class="layer-grid">
+                <div class="layer-spec-panel">
+                    <div class="layer-spec-header">
+                        <span class="layer-spec-title">Verification & Diagnostics Systems</span>
+                        <span class="telemetry-badge">active</span>
+                    </div>
+                    <div class="spec-list">
+                        <div class="spec-item">
+                            <span class="spec-label">MANUAL DIAGNOSTICS & FIELD CHECKS</span>
+                            <span class="spec-value">Physical fiber splicing testing (OTDR calibration), Wi-Fi heatmapping for field AP deployments, and core network port audits.</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">AUTOMATED VERIFICATION</span>
+                            <span class="spec-value">Scripted system diagnostics checking endpoint latency, server connectivity metrics, and automatic API status verification.</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">HARDWARE CONTROLLER QA</span>
+                            <span class="spec-value">Calibration testing of infrared safety sensors, emergency halt motor logic checks, and wireless remote link stability testing.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layer-diagram-panel">
+                    <div class="qa-checklist">
+                        <div class="qa-check-row">
+                            <span class="qa-check-label"><i class="fa-solid fa-circle-nodes" style="color: var(--accent-cyan);"></i> VLAN Subnet Isolation</span>
+                            <span class="qa-check-status">passed</span>
+                        </div>
+                        <div class="qa-check-row">
+                            <span class="qa-check-label"><i class="fa-solid fa-radar" style="color: var(--accent-cyan);"></i> Smart Gate Sensor Calibration</span>
+                            <span class="qa-check-status">passed</span>
+                        </div>
+                        <div class="qa-check-row">
+                            <span class="qa-check-label"><i class="fa-solid fa-shield-halved" style="color: var(--accent-cyan);"></i> Firewall Packet Diagnostic</span>
+                            <span class="qa-check-status">passed</span>
+                        </div>
+                        <div class="qa-check-row">
+                            <span class="qa-check-label"><i class="fa-solid fa-cubes" style="color: var(--accent-cyan);"></i> Vercel 3D Render Pipeline</span>
+                            <span class="qa-check-status">passed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. TECHNOLOGY STACK MAP SECTION -->
+        <section class="tech-map-section" id="tech-map">
+            <div class="section-header-tech">
+                <div>
+                    <span class="section-tagline">Ecosystem Map // Technical Catalog</span>
+                    <h2 class="section-title">Ecosystem Stack Topology</h2>
+                </div>
+                <div class="section-meta-info">END_TO_END_CONNECTIONS</div>
+            </div>
+
+            <div class="tech-map-wrapper">
+                <div class="tech-map-grid">
+                    <div class="map-flow-indicator"></div>
+                    
+                    <!-- Col 1: Gateway & WAN -->
+                    <div class="tech-map-column">
+                        <div class="tech-map-column-title">1. Edge & Routing</div>
+                        <div class="tech-map-node">
+                            <i class="fa-solid fa-network-wired"></i>
+                            <h4>UDM Pro Max</h4>
+                            <p>Edge Gateway</p>
+                        </div>
+                        <div class="tech-map-node">
+                            <i class="fa-solid fa-route"></i>
+                            <h4>MikroTik</h4>
+                            <p>Core Routing</p>
+                        </div>
+                    </div>
+
+                    <!-- Col 2: Switching Layer -->
+                    <div class="tech-map-column">
+                        <div class="tech-map-column-title">2. LAN & Splicing</div>
+                        <div class="tech-map-node">
+                            <i class="fa-solid fa-server"></i>
+                            <h4>USW Pro Max 24</h4>
+                            <p>PoE Switching</p>
+                        </div>
+                        <div class="tech-map-node">
+                            <i class="fa-solid fa-scissors"></i>
+                            <h4>Fiber Optic</h4>
+                            <p>Splicing & FTTH</p>
+                        </div>
+                    </div>
+
+                    <!-- Col 3: Compute & Virtualization -->
+                    <div class="tech-map-column">
+                        <div class="tech-map-column-title">3. Servers & Services</div>
+                        <div class="tech-map-node">
+                            <i class="fa-brands fa-linux"></i>
+                            <h4>Linux OS</h4>
+                            <p>Server Administration</p>
+                        </div>
+                        <div class="tech-map-node">
+                            <i class="fa-brands fa-docker"></i>
+                            <h4>Docker</h4>
+                            <p>Container Virtualization</p>
+                        </div>
+                    </div>
+
+                    <!-- Col 4: Systems Logic -->
+                    <div class="tech-map-column">
+                        <div class="tech-map-column-title">4. Logic & APIs</div>
+                        <div class="tech-map-node">
+                            <i class="fa-brands fa-python"></i>
+                            <h4>Python / Node</h4>
+                            <p>Backend & Automation</p>
+                        </div>
+                        <div class="tech-map-node">
+                            <i class="fa-solid fa-code"></i>
+                            <h4>C# / .NET</h4>
+                            <p>Utilities & Scripts</p>
+                        </div>
+                    </div>
+
+                    <!-- Col 5: User Interfaces -->
+                    <div class="tech-map-column">
+                        <div class="tech-map-column-title">5. App Delivery</div>
+                        <div class="tech-map-node">
+                            <i class="fa-solid fa-window-restore"></i>
+                            <h4>Next.js / JS</h4>
+                            <p>Web Environments</p>
+                        </div>
+                        <div class="tech-map-node">
+                            <i class="fa-brands fa-android"></i>
+                            <h4>Kotlin / Java</h4>
+                            <p>Android SDK</p>
+                        </div>
+                    </div>
+
+                    <!-- Col 6: QA Testing -->
+                    <div class="tech-map-column">
+                        <div class="tech-map-column-title">6. Integrity Assurance</div>
+                        <div class="tech-map-node">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <h4>Diagnostics</h4>
+                            <p>Manual & Auto QA</p>
+                        </div>
+                        <div class="tech-map-node">
+                            <i class="fa-solid fa-bug-slash"></i>
+                            <h4>Wi-Fi & Splicing</h4>
+                            <p>Calibration Audits</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. FEATURED PROJECTS SECTION -->
+        <section class="projects-section" id="projects">
+            <div class="projects-header">
+                <div>
+                    <span class="section-tagline">Services & Deliverables // Recent Components</span>
+                    <h2 class="section-title">Ecosystem Components</h2>
+                </div>
             </div>
 
             <div class="projects-grid">
                 <!-- Project 1: Gate Automation -->
-                <article class="glass-card project-card hover-glow scroll-reveal reveal-slide-up delay-100">
-                    <div class="project-image-container">
-                        <img src="assets/gate_automation.png" alt="Gate Automation System Preview" class="project-img">
-                        <span class="project-category">Automation</span>
+                <article class="project-card">
+                    <div class="project-meta-top">
+                        <span class="project-tag">Automation</span>
+                        <i class="fa-solid fa-microchip" style="color: var(--accent-orange);"></i>
                     </div>
-                    <div class="project-details">
+                    <div class="project-body">
                         <h3 class="project-title">Gate Automation System</h3>
                         <p class="project-description">
-                            Implementasi sistem pagar otomatis berbasis motor penggerak pintar dan sensor inframerah
-                            untuk keamanan akses masuk hunian dan area komersial secara efisien.
+                            Implementasi sistem pagar otomatis berbasis motor penggerak pintar dan sensor inframerah untuk keamanan akses masuk hunian dan area komersial secara efisien.
                         </p>
                         <div class="project-tech-stack">
                             <span>Auto Gate Motor</span>
@@ -412,29 +547,25 @@
                             <span>Safety Sensors</span>
                             <span>Smart Controller</span>
                         </div>
-                        <div class="project-actions">
-                            <a href="#" class="btn btn-primary btn-sm">Details <i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="fa-brands fa-github"></i> Reference
-                            </a>
-                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-link"><i class="fa-solid fa-gear"></i> System Hardware</span>
+                        <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank" rel="noopener noreferrer" aria-label="Reference Github">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
                     </div>
                 </article>
 
                 <!-- Project 2: Server Rack & Switch Deployment -->
-                <article class="glass-card project-card hover-glow scroll-reveal reveal-slide-up delay-200">
-                    <div class="project-image-container">
-                        <img src="assets/server_rack_switch.png" alt="Server Rack & Switch Deployment Preview"
-                            class="project-img">
-                        <span class="project-category">Network Infrastructure</span>
+                <article class="project-card">
+                    <div class="project-meta-top">
+                        <span class="project-tag">Network Infrastructure</span>
+                        <i class="fa-solid fa-network-wired" style="color: var(--accent-cyan);"></i>
                     </div>
-                    <div class="project-details">
+                    <div class="project-body">
                         <h3 class="project-title">Server Rack & Switch Deployment</h3>
                         <p class="project-description">
-                            Pemasangan, perakitan, dan penataan manajemen kabel (cable management) rak server beserta
-                            konfigurasi network switch untuk infrastruktur jaringan kantor yang andal.
+                            Pemasangan, perakitan, dan penataan manajemen kabel (cable management) rak server beserta konfigurasi network switch untuk infrastruktur jaringan kantor yang andal.
                         </p>
                         <div class="project-tech-stack">
                             <span>Rack Server</span>
@@ -442,29 +573,25 @@
                             <span>Cable Management</span>
                             <span>Network Config</span>
                         </div>
-                        <div class="project-actions">
-                            <a href="#" class="btn btn-primary btn-sm">Details <i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="fa-brands fa-github"></i> Reference
-                            </a>
-                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-link"><i class="fa-solid fa-server"></i> Hardware Deploy</span>
+                        <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank" rel="noopener noreferrer" aria-label="Reference Github">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
                     </div>
                 </article>
 
                 <!-- Project 3: CCTV, AP, & Fiber Optic Installation -->
-                <article class="glass-card project-card hover-glow scroll-reveal reveal-slide-up delay-300">
-                    <div class="project-image-container">
-                        <img src="assets/cctv_ap_fiber.png" alt="CCTV, Access Point & Fiber Optic Installation Preview"
-                            class="project-img">
-                        <span class="project-category">Telecommunication</span>
+                <article class="project-card">
+                    <div class="project-meta-top">
+                        <span class="project-tag">Telecommunication</span>
+                        <i class="fa-solid fa-tower-cell" style="color: var(--accent-cyan);"></i>
                     </div>
-                    <div class="project-details">
+                    <div class="project-body">
                         <h3 class="project-title">CCTV, Access Point & Fiber Optic Installation</h3>
                         <p class="project-description">
-                            Instalasi kamera pengawas CCTV, pemasangan Wi-Fi Access Point untuk area luas, dan penarikan
-                            serta splicing kabel serat optik (Fiber Optic) berkecepatan tinggi.
+                            Instalasi kamera pengawas CCTV, pemasangan Wi-Fi Access Point untuk area luas, dan penarikan serta splicing kabel serat optik (Fiber Optic) berkecepatan tinggi.
                         </p>
                         <div class="project-tech-stack">
                             <span>IP CCTV Camera</span>
@@ -472,24 +599,22 @@
                             <span>Fiber Optic Splicing</span>
                             <span>FTTH</span>
                         </div>
-                        <div class="project-actions">
-                            <a href="#" class="btn btn-primary btn-sm">Details <i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="fa-brands fa-github"></i> Reference
-                            </a>
-                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-link"><i class="fa-solid fa-cable-car"></i> Link Telecom</span>
+                        <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank" rel="noopener noreferrer" aria-label="Reference Github">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
                     </div>
                 </article>
 
                 <!-- Project 4: UI/UX Design -->
-                <article class="glass-card project-card hover-glow scroll-reveal reveal-slide-up delay-100">
-                    <div class="project-image-container">
-                        <img src="assets/project_ui_ux.png" alt="UI/UX Design Showcase" class="project-img">
-                        <span class="project-category">UI/UX Design</span>
+                <article class="project-card">
+                    <div class="project-meta-top">
+                        <span class="project-tag">UI/UX Design</span>
+                        <i class="fa-solid fa-compass-drafting" style="color: var(--accent-blue);"></i>
                     </div>
-                    <div class="project-details">
+                    <div class="project-body">
                         <h3 class="project-title">UI/UX Design Services</h3>
                         <p class="project-description">
                             Merancang antarmuka pengguna (UI) dan pengalaman pengguna (UX) yang modern, ramah pengguna, dan responsif untuk aplikasi mobile dan web dengan prototipe high-fidelity.
@@ -500,24 +625,22 @@
                             <span>Prototyping</span>
                             <span>User Research</span>
                         </div>
-                        <div class="project-actions">
-                            <a href="#" class="btn btn-primary btn-sm">Details <i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="fa-brands fa-github"></i> Reference
-                            </a>
-                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-link"><i class="fa-solid fa-pen-nib"></i> UI Prototypes</span>
+                        <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank" rel="noopener noreferrer" aria-label="Reference Github">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
                     </div>
                 </article>
- 
+
                 <!-- Project 5: Web Development -->
-                <article class="glass-card project-card hover-glow scroll-reveal reveal-slide-up delay-200">
-                    <div class="project-image-container">
-                        <img src="assets/project_synthwave_shop.png" alt="Web Development Showcase" class="project-img">
-                        <span class="project-category">Web Development</span>
+                <article class="project-card">
+                    <div class="project-meta-top">
+                        <span class="project-tag">Web Development</span>
+                        <i class="fa-solid fa-globe" style="color: var(--accent-blue);"></i>
                     </div>
-                    <div class="project-details">
+                    <div class="project-body">
                         <h3 class="project-title">Web Development</h3>
                         <p class="project-description">
                             Membangun website dan aplikasi web yang responsif, cepat, dan interaktif menggunakan teknologi web modern yang disesuaikan dengan kebutuhan bisnis.
@@ -528,24 +651,22 @@
                             <span>Frontend Tech</span>
                             <span>Responsive Layout</span>
                         </div>
-                        <div class="project-actions">
-                            <a href="#" class="btn btn-primary btn-sm">Details <i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="fa-brands fa-github"></i> Reference
-                            </a>
-                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-link"><i class="fa-solid fa-code"></i> Web Interface</span>
+                        <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank" rel="noopener noreferrer" aria-label="Reference Github">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
                     </div>
                 </article>
- 
+
                 <!-- Project 6: Android App -->
-                <article class="glass-card project-card hover-glow scroll-reveal reveal-slide-up delay-300">
-                    <div class="project-image-container">
-                        <img src="assets/project_netrunner_chat.png" alt="Android App Development Showcase" class="project-img">
-                        <span class="project-category">Android Development</span>
+                <article class="project-card">
+                    <div class="project-meta-top">
+                        <span class="project-tag">Android Development</span>
+                        <i class="fa-brands fa-android" style="color: var(--accent-blue);"></i>
                     </div>
-                    <div class="project-details">
+                    <div class="project-body">
                         <h3 class="project-title">Android App Development</h3>
                         <p class="project-description">
                             Mengembangkan aplikasi mobile Android native dan cross-platform dengan UI bersih, animasi mulus, dan integrasi backend yang tangguh.
@@ -556,24 +677,22 @@
                             <span>Mobile Database</span>
                             <span>API Integration</span>
                         </div>
-                        <div class="project-actions">
-                            <a href="#" class="btn btn-primary btn-sm">Details <i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="fa-brands fa-github"></i> Reference
-                            </a>
-                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-link"><i class="fa-solid fa-mobile-screen"></i> Mobile System</span>
+                        <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank" rel="noopener noreferrer" aria-label="Reference Github">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
                     </div>
                 </article>
- 
+
                 <!-- Project 7: Desktop App -->
-                <article class="glass-card project-card hover-glow scroll-reveal reveal-slide-up delay-100">
-                    <div class="project-image-container">
-                        <img src="assets/project_aegis_shield.png" alt="Desktop App Development Showcase" class="project-img">
-                        <span class="project-category">Desktop Development</span>
+                <article class="project-card">
+                    <div class="project-meta-top">
+                        <span class="project-tag">Desktop Development</span>
+                        <i class="fa-solid fa-desktop" style="color: var(--accent-blue);"></i>
                     </div>
-                    <div class="project-details">
+                    <div class="project-body">
                         <h3 class="project-title">Desktop App Development</h3>
                         <p class="project-description">
                             Membuat aplikasi desktop lintas platform yang aman, andal, dan berkinerja tinggi untuk Windows, macOS, dan Linux.
@@ -584,24 +703,22 @@
                             <span>Cross-Platform API</span>
                             <span>System Utilities</span>
                         </div>
-                        <div class="project-actions">
-                            <a href="#" class="btn btn-primary btn-sm">Details <i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="fa-brands fa-github"></i> Reference
-                            </a>
-                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-link"><i class="fa-solid fa-window-maximize"></i> Desktop App</span>
+                        <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank" rel="noopener noreferrer" aria-label="Reference Github">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
                     </div>
                 </article>
 
                 <!-- Project 8: Toms 3D Generator -->
-                <article class="glass-card project-card hover-glow scroll-reveal reveal-slide-up delay-200">
-                    <div class="project-image-container">
-                        <img src="assets/project_toms_3d.png" alt="Toms 3D Generator Showcase" class="project-img">
-                        <span class="project-category">Web Application</span>
+                <article class="project-card">
+                    <div class="project-meta-top">
+                        <span class="project-tag">Web Application</span>
+                        <i class="fa-solid fa-cube" style="color: var(--accent-blue);"></i>
                     </div>
-                    <div class="project-details">
+                    <div class="project-body">
                         <h3 class="project-title">Toms 3D Generator</h3>
                         <p class="project-description">
                             Web AI generator yang dapat mengubah gambar 2D menjadi model 3D (format GLB) dalam waktu singkat secara privat dan interaktif.
@@ -612,78 +729,132 @@
                             <span>Stable Fast 3D</span>
                             <span>AI Vision Cascade</span>
                         </div>
-                        <div class="project-actions">
-                            <a href="https://tomsgenerator3d.vercel.app/" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Details <i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <i class="fa-brands fa-github"></i> Reference
-                            </a>
-                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://tomsgenerator3d.vercel.app/" class="project-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> vercel_deployment
+                        </a>
+                        <a href="https://github.com/Creamypanda-coder" class="project-repo-link" target="_blank" rel="noopener noreferrer" aria-label="Reference Github">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
-        <section class="contact-section" id="contact">
-            <span class="section-tagline scroll-reveal reveal-slide-up">Contact Me</span>
-            <h2 class="section-title scroll-reveal reveal-slide-up delay-100">Get In Touch</h2>
+        <!-- 7. PROFESSIONAL EXPERIENCE TIMELINE SECTION -->
+        <section class="experience-section" id="experience">
+            <div class="section-header-tech">
+                <div>
+                    <span class="section-tagline">Deploy History // Engineering Timeline</span>
+                    <h2 class="section-title">Professional Experience</h2>
+                </div>
+                <div class="section-meta-info">nominal_achievements_log</div>
+            </div>
 
-            <div class="contact-grid">
-                <div class="contact-info scroll-reveal reveal-slide-left">
-                    <div class="glass-card contact-info-card">
-                        <p class="contact-intro">
-                            Have a project in mind or want to work together? Feel free to send me a message and I'll get
-                            back to you as soon as possible.
-                        </p>
-
-                        <div class="contact-details-list">
-                            <div class="contact-item">
-                                <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-                                <div class="contact-text">
-                                    <span class="contact-label">Email</span>
-                                    <a href="mailto:muhamadtomytobuhita@gmail.com"
-                                        class="contact-value">muhamadtomytobuhita@gmail.com</a>
-                                </div>
-                            </div>
-
-                            <div class="contact-item">
-                                <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-                                <div class="contact-text">
-                                    <span class="contact-label">Phone</span>
-                                    <a href="tel:+6282239638386" class="contact-value">+62 822-3963-8386</a>
-                                </div>
-                            </div>
-
-                            <div class="contact-item">
-                                <div class="contact-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-                                <div class="contact-text">
-                                    <span class="contact-label">Location</span>
-                                    <a href="https://maps.google.com/?q=Pelabuhan+Yos+Sudarso+Ambon" target="_blank" rel="noopener noreferrer" class="contact-value location-link">
-                                        Maluku Ambon, Indonesia
-                                    </a>
-                                </div>
-                            </div>
+            <div class="experience-timeline">
+                <!-- Timeline item 1: Senior Technology Engineer -->
+                <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="timeline-role">Senior Technology Engineer & Network Specialist</h3>
+                            <span class="timeline-company">Freelance Services / Independent Deployments</span>
                         </div>
-
-                        <div class="contact-map-wrapper">
-                            <iframe 
-                                class="contact-map"
-                                src="https://www.openstreetmap.org/export/embed.html?bbox=128.1709%2C-3.6997%2C128.1809%2C-3.6917&amp;layer=mapnik&amp;marker=-3.6957%2C128.1759" 
-                                allowfullscreen="" 
-                                loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"
-                                title="Pelabuhan Yos Sudarso Ambon Map">
-                            </iframe>
-                        </div>
+                        <span class="timeline-date">2023 - PRESENT</span>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Specializing in full-scope technology architecture, building robust hardware setups and network structures connected with backend and client layers.</p>
+                        <ul>
+                            <li>Spearheaded complete network infrastructure migration at Ambon node, transitioning from legacy MikroTik configuration (RB1100x4) to UniFi ecosystem (UDM Pro Max & USW Pro Max 24 PoE).</li>
+                            <li>Designed secure logical routing profiles spanning 17 VLAN subnets, including segregated groups for management systems, biometric attendance nodes, local servers, finance workstation layers, and CCTV.</li>
+                            <li>Integrated static routing for PELINDO WAN infrastructure via Cisco CE CE routing routes on the gateway.</li>
+                            <li>Engineered automated hardware solutions, including motor-driven gate automation integrating infrared safety relays.</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="contact-form-wrapper scroll-reveal reveal-slide-right">
-                    <form class="glass-card contact-form" id="contact-form"
-                        action="https://formsubmit.co/muhamadtomytobuhita@gmail.com" method="POST"
-                        target="hidden_iframe" onsubmit="submitted=true;">
+                <!-- Timeline item 2: Systems Support & Integrator -->
+                <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="timeline-role">Systems Deployment & QA Specialist</h3>
+                            <span class="timeline-company">Local Infrastructures & Technology Integrators</span>
+                        </div>
+                        <span class="timeline-date">2020 - 2023</span>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Managed technical operations, network stability mapping, hardware cabling, and quality diagnostics across diverse sites.</p>
+                        <ul>
+                            <li>Managed server racks physical cabling, switch configurations, and diagnostics routines to ensure 99.8% system availability.</li>
+                            <li>Executed high-speed fiber optic cabling (FTTH) splicing, IP CCTV camera matrix deployments, and wireless Wi-Fi AP positioning (Altai, U7 Pro XG).</li>
+                            <li>Developed cross-platform utility programs (Android mobile apps in Kotlin, desktop shells in Tauri/Electron) for remote system diagnosis and local-first data utilities.</li>
+                            <li>Led rigorous Quality Assurance diagnostic tests across hardware and software systems, testing network bandwidth, backup power loops, and safety sensor limits.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. CONTACT / CONNECTION SECTION -->
+        <section class="contact-section" id="contact">
+            <div class="section-header-tech">
+                <div>
+                    <span class="section-tagline">Transmission Interface // Contact</span>
+                    <h2 class="section-title">Initialize Link</h2>
+                </div>
+                <div class="section-meta-info">established_contact_ports</div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p class="contact-intro">
+                        To initiate connection, submit details in the terminal interface, or reach out directly via established communication paths.
+                    </p>
+
+                    <div class="contact-details-list">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-text">
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:muhamadtomytobuhita@gmail.com" class="contact-value">muhamadtomytobuhita@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-text">
+                                <span class="contact-label">Phone</span>
+                                <a href="tel:+6282239638386" class="contact-value">+62 822-3963-8386</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                            <div class="contact-text">
+                                <span class="contact-label">Location</span>
+                                <a href="https://maps.google.com/?q=Pelabuhan+Yos+Sudarso+Ambon" target="_blank" rel="noopener noreferrer" class="contact-value">
+                                    Maluku Ambon, Indonesia
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-map-wrapper">
+                        <iframe 
+                            class="contact-map"
+                            src="https://www.openstreetmap.org/export/embed.html?bbox=128.1709%2C-3.6997%2C128.1809%2C-3.6917&amp;layer=mapnik&amp;marker=-3.6957%2C128.1759" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Pelabuhan Yos Sudarso Ambon Map">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contact-form" action="https://formsubmit.co/muhamadtomytobuhita@gmail.com" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
                         <!-- FormSubmit configurations -->
                         <input type="text" name="_honey" style="display:none">
                         <input type="hidden" name="_captcha" value="false">
@@ -691,28 +862,24 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="user-name">Your Name</label>
-                                <input type="text" id="user-name" name="name" class="form-input"
-                                    placeholder="e.g., Jane Doe" required>
+                                <input type="text" id="user-name" name="name" class="form-input" placeholder="e.g., Jane Doe" required>
                             </div>
                             <div class="form-group">
                                 <label for="user-email">Your Email</label>
-                                <input type="email" id="user-email" name="email" class="form-input"
-                                    placeholder="e.g., jane@example.com" required>
+                                <input type="email" id="user-email" name="email" class="form-input" placeholder="e.g., jane@example.com" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="form-subject">Subject</label>
-                            <input type="text" id="form-subject" name="subject" class="form-input"
-                                placeholder="How can I help you?" required>
+                            <input type="text" id="form-subject" name="subject" class="form-input" placeholder="How can I help you?" required>
                         </div>
-                        <div class="form-group form-group-message">
+                        <div class="form-group">
                             <label for="form-message">Your Message</label>
-                            <textarea id="form-message" name="message" class="form-input form-textarea"
-                                placeholder="Type your message here..." rows="5" required></textarea>
+                            <textarea id="form-message" name="message" class="form-input form-textarea" placeholder="Type your message here..." rows="5" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-submit" id="contact-submit-btn">
-                            Send Message <i class="fa-regular fa-paper-plane"></i>
+                        <button type="submit" class="btn btn-primary" id="contact-submit-btn" style="width: 100%;">
+                            Send Link Request <i class="fa-solid fa-paper-plane"></i>
                         </button>
                     </form>
                 </div>
@@ -724,7 +891,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <span class="footer-logo">Tomi<span>.</span></span>
+            <span class="footer-logo">Tomi // Architect</span>
             <p class="footer-copy">&copy; 2026 Muhamad Tomi Tobuhita. All rights reserved.</p>
             <button id="scroll-to-top" class="scroll-top-btn" aria-label="Scroll to top" title="Scroll to top">
                 <i class="fa-solid fa-arrow-up"></i>
@@ -738,7 +905,7 @@
         onload="if(typeof submitted !== 'undefined' && submitted) { handleFormSubmitSuccess(); }"></iframe>
 
     <!-- Custom JavaScript -->
-    <script src="script.js?v=1.0.1"></script>
+    <script src="script.js?v=1.0.2"></script>
 </body>
 
 </html>
