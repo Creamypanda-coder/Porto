@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitcher();
     initAvatarInteraction();
     runTerminalSimulation();
+    initTabAnimation();
 });
 
 /* ==========================================================================
@@ -645,4 +646,48 @@ function initAvatarInteraction() {
             card.style.boxShadow = '';
         }, 1000);
     });
+}
+
+/* ==========================================================================
+   14. DYNAMIC/ANIMATED BROWSER TAB TITLE
+   ========================================================================== */
+function initTabAnimation() {
+    const originalTitle = document.title;
+    const inactiveTitle = "📡 Connection lost... | Come back! ";
+    const spinnerFrames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
+    let spinnerIndex = 0;
+    let titleInterval = null;
+
+    function startActiveAnimation() {
+        if (titleInterval) clearInterval(titleInterval);
+        
+        titleInterval = setInterval(() => {
+            document.title = `${spinnerFrames[spinnerIndex]} ${originalTitle}`;
+            spinnerIndex = (spinnerIndex + 1) % spinnerFrames.length;
+        }, 150);
+    }
+
+    function startInactiveAnimation() {
+        if (titleInterval) clearInterval(titleInterval);
+        
+        let position = 0;
+        titleInterval = setInterval(() => {
+            // Scrolling marquee for the inactive tab title
+            const titleText = ` ${inactiveTitle} `;
+            document.title = titleText.substring(position) + titleText.substring(0, position);
+            position = (position + 1) % titleText.length;
+        }, 300);
+    }
+
+    // Detect tab visibility changes
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            startInactiveAnimation();
+        } else {
+            startActiveAnimation();
+        }
+    });
+
+    // Start immediately
+    startActiveAnimation();
 }

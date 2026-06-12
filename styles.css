@@ -34,6 +34,16 @@
     --primary-gradient: linear-gradient(135deg, #00f0ff 0%, #0070f3 100%);
     --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     
+    /* Badge Specifics */
+    --badge-bg: rgba(0, 240, 255, 0.08);
+    --badge-border: rgba(0, 240, 255, 0.2);
+
+    /* Syntax Highlighting */
+    --syntax-keyword: #f472b6;
+    --syntax-method: #60a5fa;
+    --syntax-string: #34d399;
+    --syntax-comment: #6b7280;
+
     /* Timing & Curves */
     --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-quick: all 0.15s ease;
@@ -41,11 +51,11 @@
 
 /* Light Theme Mode override (Adapting the same technical layout to light schema) */
 body.light-theme {
-    --bg-primary: #f0f2f5;
-    --bg-secondary: rgba(255, 255, 255, 0.85);
-    --bg-tertiary: #ffffff;
-    --bg-glow: rgba(243, 244, 246, 0.9);
-    --navbar-bg: rgba(240, 242, 245, 0.85);
+    --bg-primary: #e2e8f0;
+    --bg-secondary: rgba(241, 245, 249, 0.85);
+    --bg-tertiary: #f1f5f9;
+    --bg-glow: rgba(226, 232, 240, 0.9);
+    --navbar-bg: rgba(226, 232, 240, 0.85);
     
     --accent-cyan: #0088cc;
     --accent-green: #00aa3c;
@@ -54,13 +64,61 @@ body.light-theme {
     
     --text-primary: #111827;
     --text-secondary: #4b5563;
-    --text-muted: #9ca3af;
+    --text-muted: #707a8a;
     
     --border-color: rgba(17, 24, 39, 0.08);
     --border-hover: rgba(0, 136, 204, 0.3);
     --primary-gradient: linear-gradient(135deg, #0088cc 0%, #0044bb 100%);
     --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+
+    --badge-bg: rgba(0, 136, 204, 0.08);
+    --badge-border: rgba(0, 136, 204, 0.2);
+
+    --syntax-keyword: #d73a49;
+    --syntax-method: #005cc5;
+    --syntax-string: #22863a;
+    --syntax-comment: #6a737d;
 }
+
+body.light-theme .btn-primary {
+    color: #ffffff !important;
+}
+
+body.light-theme .hero-console {
+    background: #f8fafc;
+    border-color: var(--border-color);
+}
+
+body.light-theme .console-header {
+    background: #e2e8f0;
+    border-bottom-color: var(--border-color);
+}
+
+body.light-theme .console-title {
+    color: var(--text-secondary) !important;
+}
+
+body.light-theme .console-body {
+    color: var(--text-primary);
+}
+
+body.light-theme .console-output {
+    color: var(--text-secondary) !important;
+}
+
+body.light-theme .console-prompt {
+    color: var(--accent-green) !important;
+}
+
+body.light-theme .hero-console .avatar-scanner-frame {
+    border-color: var(--border-color);
+}
+
+body.light-theme .avatar-img-container {
+    background: #e2e8f0;
+}
+
+
 
 /* --- 2. RESET & BASE LAYOUTS --- */
 * {
@@ -266,8 +324,8 @@ button {
     text-transform: uppercase;
     padding: 3px 8px;
     border-radius: 4px;
-    background: rgba(0, 240, 255, 0.08);
-    border: 1px solid rgba(0, 240, 255, 0.2);
+    background: var(--badge-bg);
+    border: 1px solid var(--badge-border);
     color: var(--accent-cyan);
     display: inline-flex;
     align-items: center;
@@ -723,7 +781,7 @@ section {
 }
 
 .layer-spec-panel {
-    background: rgba(10, 16, 30, 0.4);
+    background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 24px;
@@ -770,13 +828,20 @@ section {
 
 .layer-diagram-panel {
     border: 1px solid var(--border-color);
-    background: #040711 !important; /* Keep dark blueprint in both modes */
-    color: #e5e7eb !important;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
     border-radius: 6px;
     padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+} 
+
+/* Light‑mode overrides for panel */
+.light-theme .layer-diagram-panel {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
 }
 
 /* Networking Topology / VLAN Switch Visual */
@@ -790,23 +855,24 @@ section {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 6px;
-    background: #0a0e1a;
+    background: var(--bg-primary);
     padding: 12px;
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
 }
 
 .vlan-port {
     height: 28px;
-    background: #111827;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-mono);
     font-size: 9px;
-    color: #6b7280;
+    font-weight: 600;
+    color: var(--text-secondary);
     transition: var(--transition-quick);
     position: relative;
     cursor: help;
@@ -849,6 +915,36 @@ section {
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     transition: var(--transition-quick);
 }
+/* -------- Light‑mode overrides for VLAN visualization -------- */
+.light-theme .vlan-switch-board {
+    background: var(--bg-tertiary);
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.light-theme .vlan-port {
+    background: #d1d5db; /* light gray for contrast */
+    border-color: var(--border-color);
+    color: var(--text-muted);
+}
+
+.light-theme .vlan-port.active {
+    border-color: #34d399 !important; /* green */
+    color: #34d399 !important;
+    background: rgba(52, 211, 153, 0.1) !important;
+}
+
+.light-theme .vlan-port.trunk {
+    border-color: #00bcd4 !important; /* cyan */
+    color: #00bcd4 !important;
+    background: rgba(0, 188, 212, 0.1) !important;
+}
+
+.light-theme .vlan-tooltip {
+    background: #111827; /* dark tooltip for readability */
+    color: #f3f4f6;
+    border-color: var(--accent-cyan);
+}
 
 .vlan-tooltip::after {
     content: '';
@@ -865,21 +961,21 @@ section {
 .dev-sandbox-log {
     font-family: var(--font-mono);
     font-size: 12px;
-    background: #080b15 !important;
-    color: #e5e7eb !important;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
     padding: 16px;
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.code-keyword { color: #f472b6; }
-.code-method { color: #60a5fa; }
-.code-string { color: #34d399; }
-.code-comment { color: #6b7280; }
+.code-keyword { color: var(--syntax-keyword); }
+.code-method { color: var(--syntax-method); }
+.code-string { color: var(--syntax-string); }
+.code-comment { color: var(--syntax-comment); }
 
 /* QA Protocol diagnostic rows */
 .qa-checklist {
@@ -893,8 +989,8 @@ section {
     align-items: center;
     justify-content: space-between;
     padding: 10px 14px;
-    background: #0a0d1a !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
 }
 
@@ -903,7 +999,7 @@ section {
     align-items: center;
     gap: 12px;
     font-size: 13px;
-    color: #f3f4f6 !important;
+    color: var(--text-primary);
 }
 
 .qa-check-label i {
@@ -921,8 +1017,8 @@ section {
 
 /* --- 8. TECHNOLOGY STACK MAP --- */
 .tech-map-wrapper {
-    background: #040711 !important; /* Fixed dark background */
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 40px 24px;
     overflow-x: auto;
@@ -949,23 +1045,23 @@ section {
 .tech-map-column-title {
     font-family: var(--font-mono);
     font-size: 12px;
-    color: #6b7280 !important; /* Fixed gray title */
+    color: var(--text-muted);
     text-transform: uppercase;
     text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 8px;
     margin-bottom: 8px;
 }
 
 .tech-map-node {
-    background: #0c1020 !important; /* Fixed dark node background */
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 16px;
     text-align: center;
     transition: var(--transition-smooth);
     cursor: default;
-    color: #f3f4f6 !important; /* Fixed light node text */
+    color: var(--text-primary);
 }
 
 .tech-map-node:hover {
@@ -977,7 +1073,7 @@ section {
 .tech-map-node i {
     font-size: 20px;
     margin-bottom: 8px;
-    color: #9ca3af !important;
+    color: var(--text-secondary);
     transition: var(--transition-quick);
 }
 
@@ -988,13 +1084,13 @@ section {
 .tech-map-node h4 {
     font-size: 13px;
     margin-bottom: 4px;
-    color: #f3f4f6 !important;
+    color: var(--text-primary);
 }
 
 .tech-map-node p {
     font-family: var(--font-mono);
     font-size: 10px;
-    color: #9ca3af !important;
+    color: var(--text-secondary);
 }
 
 /* Node flow line overlay */
@@ -1093,7 +1189,7 @@ section {
 .project-tech-stack span {
     font-family: var(--font-mono);
     font-size: 10px;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--bg-glow);
     border: 1px solid var(--border-color);
     padding: 2px 6px;
     border-radius: 3px;
@@ -1300,13 +1396,13 @@ body.light-theme .contact-map {
 
 /* Form Styling - Terminal Style */
 .contact-form-wrapper {
-    background: #040711 !important; /* Fixed dark background */
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 32px;
     box-shadow: var(--card-shadow);
     position: relative;
-    color: #e5e7eb !important;
+    color: var(--text-primary);
 }
 
 .contact-form-wrapper::before {
@@ -1341,16 +1437,16 @@ body.light-theme .contact-map {
 .contact-form label {
     font-family: var(--font-mono);
     font-size: 11px;
-    color: #9ca3af !important; /* Fixed light label color */
+    color: var(--text-secondary);
     text-transform: uppercase;
 }
 
 .form-input {
-    background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 10px 14px;
-    color: #f3f4f6 !important; /* Fixed light input text */
+    color: var(--text-primary);
     font-family: var(--font-mono);
     font-size: 13px;
     transition: var(--transition-quick);
@@ -1358,8 +1454,8 @@ body.light-theme .contact-map {
 
 .form-input:focus {
     outline: none;
-    border-color: var(--accent-cyan) !important;
-    background: rgba(0, 240, 255, 0.02) !important;
+    border-color: var(--accent-cyan);
+    background: var(--bg-secondary);
 }
 
 .form-textarea {
@@ -1369,7 +1465,7 @@ body.light-theme .contact-map {
 /* --- 12. FOOTER & UTILS --- */
 .footer {
     padding: 40px 0;
-    background: #040711;
+    background: var(--bg-tertiary);
     border-top: 1px solid var(--border-color);
 }
 
